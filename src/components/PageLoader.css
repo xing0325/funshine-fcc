@@ -1,0 +1,197 @@
+/* ============================================================
+   PageLoader — 原站 .page-loader 全套规则
+   来源对照:
+   - docs/research/dabbledee-webflow.css (.page-loader / .loader-* / .enter-btn-wpr / .home-enter-btn 及媒体查询)
+   - docs/research/dabbledee-source.html 页内 <style>
+     (position:fixed/z-1000 覆盖、[data-splitting]、char 动画、[move-up]/[move-down])
+   全部规则 scope 在 .page-loader 下,避免与其他组件冲突
+   ============================================================ */
+
+.page-loader {
+  /* webflow: z-index 100 / position relative → 页内 <style> 覆盖为 1000 / fixed */
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  /* 原值 #4d0e00cc = rgba(77,14,0,.8),叠在红 body 上呈深锈红 */
+  background-color: color-mix(in srgb, var(--dd-maroon) 80%, transparent);
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  transition: all 1.4s ease-in-out;
+  display: flex;
+  /* 原站 body 排版继承(本项目无 webflow 全局基础,故在此自包含恢复) */
+  font-family: var(--font-arboria), sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* 点 ENTER 后: 原站 jQuery 内联 opacity:0,靠上面的 1.4s transition 渐隐,
+   1000ms 时被 display:none 截断(React 侧用 .closing + 1s 后卸载复刻) */
+.page-loader.closing {
+  opacity: 0;
+}
+
+/* ---- 容器(webflow 全局类,scope 复刻;顺序保持原 cascade:
+        .w-layout-blockcontainer 在前、.container 的 max-width:100% 在后生效) ---- */
+.page-loader .w-layout-blockcontainer {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.page-loader .w-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-loader .container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* ---- 内容列 ---- */
+.page-loader .loader-cntnt {
+  text-align: center;
+  flex-flow: column;
+  display: flex;
+}
+
+.page-loader .loader-icon-wpr {
+  margin-bottom: 20px;
+}
+
+.page-loader .loader-icon {
+  height: 3.472vw;
+  /* webflow img 基础规则(抵消 Tailwind preflight 的 display:block,保证 text-align 居中) */
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+/* ---- 文案(campaign-serif 金黄) ---- */
+.page-loader .loader-rich-txt {
+  font-family: var(--font-campaign), serif;
+  color: var(--dd-yellow);
+  font-size: 26px;
+  font-weight: 100;
+}
+
+.page-loader .loader-rich-txt strong {
+  font-weight: 500;
+}
+
+/* webflow p 默认边距(抵消 preflight 清零) */
+.page-loader .loader-rich-txt p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* ---- Splitting.js 逐字动画(页内 <style> 原值) ---- */
+.page-loader [data-splitting] {
+  opacity: 0;
+}
+
+/* splitting.css 推荐规则: word/char inline-block(防单词中途断行) */
+.page-loader .splitting .word,
+.page-loader .chars.splitting span.char {
+  display: inline-block;
+}
+
+.page-loader.active [data-splitting] {
+  opacity: 1;
+}
+
+.page-loader.active .chars.splitting span.char {
+  animation: dd-loader-slide-in 0.25s cubic-bezier(0.3, 0, 0.7, 1) both;
+  animation-delay: calc(25ms * var(--char-index));
+}
+
+@keyframes dd-loader-slide-in {
+  from {
+    transform: scale(0.4) translateY(80%);
+    opacity: 0;
+  }
+}
+
+/* ---- [move-up] / [move-down] 级联位移(页内 <style> 原值,scope 到 loader) ---- */
+.page-loader [move-up] {
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  transition-delay: calc(200ms * var(--data-delay));
+  transform: translateY(50px);
+}
+
+.page-loader [move-down] {
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  transition-delay: calc(400ms * var(--data-delay));
+  transform: translateY(-50px);
+}
+
+.page-loader.active [move-up],
+.page-loader.active [move-down] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- ENTER 药丸按钮 ---- */
+.page-loader .enter-btn-wpr {
+  margin-top: 2.431vw;
+}
+
+.page-loader .home-enter-btn {
+  border: 1px solid var(--dd-yellow);
+  color: var(--dd-yellow);
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3.472vw;
+  width: 19.167vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0.833vw;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-loader .home-enter-btn:hover {
+  background-color: var(--dd-yellow);
+  color: var(--dd-red);
+}
+
+/* ---- 媒体查询(断点与规则同原站) ---- */
+@media screen and (min-width: 1280px) {
+  .page-loader .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .page-loader .loader-icon-wpr {
+    margin-bottom: 1vw;
+  }
+
+  .page-loader .loader-rich-txt {
+    font-size: 2.083vw;
+  }
+
+  .page-loader .home-enter-btn {
+    padding-top: 0.65vw;
+    padding-bottom: 0.65vw;
+    font-size: 1.111vw;
+  }
+}
+
+/* 原站: 平板/手机(≤991px)完全不显示 loader */
+@media screen and (max-width: 991px) {
+  .page-loader {
+    display: none;
+  }
+}

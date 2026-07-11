@@ -1,0 +1,541 @@
+/* ============================================================
+   ServicesSlide — dabbledee.com CREATIVE SERVICES slide
+   数值全部取自 docs/research/dabbledee-webflow.css（.service-sec 相关）
+   入场动画参数取自原站内联 <style>（dabbledee-source.html L140-198）
+   全部规则 scope 在 .service-sec 下，避免与其他 slide 的同名类互踩
+   ============================================================ */
+
+/* ---------- 根（原站 body 级排版：15px arboria 红字，此处自包含） ---------- */
+.service-sec {
+  font-family: var(--font-arboria), sans-serif;
+  color: var(--dd-red);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ---------- slide 骨架 ---------- */
+.service-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 1000px;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+.service-sec .page-slider-cntnt-in {
+  z-index: 2;
+  background-color: var(--dd-cream);
+  flex-flow: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* .w-layout-blockcontainer + .container + .w-container 合并后的有效值 */
+.service-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+/* ---------- 头部带 ---------- */
+.service-sec .slide-hdr {
+  flex: none;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.service-sec .slide-hdr-in {
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* 描边大标题（h2 基础 32px/1.2 + .slide-hdr-hdng 覆盖） */
+.service-sec .slide-hdr-hdng {
+  font-family: var(--font-arboria), sans-serif;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--dd-red);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* “Want to work together?” 原站永久带 .hide，保留 DOM 仅隐藏 */
+.service-sec .slide-hdr-right {
+  font-family: var(--font-campaign), serif;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+  display: flex;
+}
+
+.service-sec .hide {
+  display: none;
+}
+
+/* 红底矩形块（贴 header 右侧，上下负 margin 顶满带高） */
+.service-sec .slide-hdr-btn-wpr {
+  background-color: var(--dd-red);
+  flex: none;
+  align-self: stretch;
+  margin-top: -7px;
+  margin-bottom: -7px;
+  margin-left: 40px;
+  padding: 9px 15px;
+}
+
+/* 通用药丸钮 + 白色变体（hover: 镂空反色） */
+.service-sec .cmn-btn {
+  border: 1px solid var(--dd-yellow);
+  background-color: var(--dd-yellow);
+  color: var(--dd-red);
+  text-transform: uppercase;
+  border-radius: 3.472vw;
+  padding: 0.903vw 1.389vw;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* 原站 a 基础过渡 */
+}
+
+.service-sec .cmn-btn:hover {
+  background-color: transparent;
+  color: var(--dd-yellow);
+}
+
+.service-sec .cmn-btn.white {
+  border-width: 1px;
+  border-color: var(--dd-cream);
+  background-color: var(--dd-cream);
+  text-align: center;
+  width: 230px;
+}
+
+.service-sec .cmn-btn.white:hover {
+  background-color: transparent;
+  color: var(--dd-cream);
+  -webkit-text-stroke-color: var(--dd-cream);
+}
+
+/* 头部带下缘 1px 红线 */
+.service-sec .sldr-hdr-btm-line {
+  background-color: var(--dd-red);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ---------- 三卡价目区 ---------- */
+.service-sec .service-cntnt-wpr {
+  flex-flow: column;
+  flex: 1;
+  justify-content: center;
+  padding-top: 1.389vw;
+  padding-bottom: 1.389vw;
+  display: flex;
+}
+
+.service-sec .service-row {
+  flex-flow: wrap;
+  margin-left: -0.833vw;
+  margin-right: -0.833vw;
+  display: flex;
+}
+
+.service-sec .service-col {
+  flex: none;
+  width: 33.33%;
+  padding-left: 0.833vw;
+  padding-right: 0.833vw;
+}
+
+.service-sec .service-card {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* 标题带：红 10% 透明底（#c3482d1a，叠奶白≈浅粉），只圆上角，下缘即 1px 红边 */
+.service-sec .service-card-hdr {
+  border: 1px solid var(--dd-red);
+  text-align: center;
+  background-color: #c3482d1a; /* = var(--dd-red) @ 10% alpha，值照抄原站 */
+  border-top-left-radius: 1.389vw;
+  border-top-right-radius: 1.389vw;
+  padding: 1.95vw 1.042vw;
+}
+
+.service-sec .service-card-title {
+  font-family: var(--font-arboria), sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* 内容区：仅左右 1px 红边，flex:1 拉齐三卡高度 */
+.service-sec .service-card-body {
+  border-style: none solid;
+  border-width: 1px;
+  border-color: var(--dd-red);
+  flex: 1;
+  padding: 25px 25px 45px;
+}
+
+.service-sec .service-rich-txt h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.service-sec .service-rich-txt ul {
+  margin-top: 0;
+  margin-bottom: 0.347vw;
+  padding-left: 0;
+  overflow: hidden; /* 原站 .w-richtext ul */
+  list-style: none;
+}
+
+/* 菱形 bullet：背景图 point-icon */
+.service-sec .service-rich-txt li {
+  background-image: url("/images/65f0062dcf97b67292e44e5d_point-icon.png");
+  background-position: 0 8px;
+  background-repeat: no-repeat;
+  background-size: 8px;
+  margin-bottom: 6px;
+  padding-left: 18px;
+  display: block;
+}
+
+/* 价格底带：同浅粉底，圆上角 + 负 margin 上叠内容区，上缘 1px 红边 */
+.service-sec .service-card-footer {
+  border: 1px solid var(--dd-red);
+  text-align: center;
+  background-color: #c3482d1a;
+  border-top-left-radius: 1.389vw;
+  border-top-right-radius: 1.389vw;
+  margin-top: -25px;
+  padding: 14px 16px;
+}
+
+.service-sec .service-footer-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   入场动画（原站内联 <style>；.swiper-slide-active → 引擎的 .is-active）
+   ============================================================ */
+
+/* 逐字标题：未激活整体透明；激活后逐字上浮（可来回重放） */
+.service-sec [data-splitting] {
+  opacity: 0;
+}
+
+.service-sec .splitting .char {
+  display: inline-block;
+}
+
+/* Splitting.js 官方配套：word 内禁断行，防止字符 inline-block 在词中间换行 */
+.service-sec .splitting .word {
+  white-space: nowrap;
+}
+
+.service-sec.is-active [data-splitting],
+.service-sec.swiper-slide-active [data-splitting] {
+  opacity: 1;
+}
+
+.service-sec.is-active .splitting .char,
+.service-sec.swiper-slide-active .splitting .char {
+  animation: dd-services-char-in 0.25s cubic-bezier(0.3, 0, 0.7, 1) both;
+  animation-delay: calc(25ms * var(--char-index));
+}
+
+@keyframes dd-services-char-in {
+  from {
+    transform: scale(0.4) translateY(80%);
+    opacity: 0;
+  }
+}
+
+/* 三卡级联上浮：--data-delay 0/1/2（原站 JS 按序注入，这里直接内联）×200ms */
+.service-sec [move-up] {
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  transition-delay: calc(200ms * var(--data-delay));
+  transform: translateY(50px);
+}
+
+.service-sec.is-active [move-up],
+.service-sec.swiper-slide-active [move-up] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   响应式（顺序与原站 stylesheet 一致：min-1280 → min-1920 → 991 → 767 → 479）
+   ============================================================ */
+
+@media screen and (min-width: 1280px) {
+  .service-sec {
+    font-size: 1.042vw; /* 原站 body */
+  }
+
+  .service-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .service-sec .slide-hdr {
+    min-height: 1px;
+    padding-top: 0.556vw;
+    padding-bottom: 0.556vw;
+  }
+
+  .service-sec .slide-hdr-hdng {
+    margin-bottom: 0.694vw; /* 原站 h2 @1280 */
+    font-size: 2.778vw;
+  }
+
+  .service-sec .slide-hdr-right {
+    max-width: 70%;
+    font-size: 1.389vw;
+  }
+
+  .service-sec .cmn-btn.white {
+    width: 19.168vw;
+  }
+
+  .service-sec .slide-hdr-btn-wpr {
+    margin-top: -0.556vw;
+    margin-bottom: -0.556vw;
+    margin-left: 4.167vw;
+    padding: 0.729vw 1.528vw;
+  }
+
+  .service-sec .service-card-hdr {
+    padding: 1.95vw 1.042vw;
+  }
+
+  .service-sec .service-card-title {
+    font-size: 1.667vw;
+  }
+
+  .service-sec .service-card-body {
+    padding: 1.183vw 3.819vw 3.5vw;
+  }
+
+  .service-sec .service-rich-txt h3 {
+    margin-bottom: 0.533vw;
+    font-size: 1.389vw;
+  }
+
+  .service-sec .service-rich-txt li {
+    background-position: 0 0.6vw;
+    background-size: 0.556vw;
+    margin-bottom: 0.286vw;
+    padding-left: 1.25vw;
+  }
+
+  .service-sec .service-card-footer {
+    margin-top: -1.183vw;
+    padding: 1.2vw 1.389vw;
+  }
+
+  .service-sec .service-footer-title {
+    font-size: 1.111vw;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .service-sec .service-rich-txt li {
+    background-position: 0 0.5vw;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .service-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .service-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .service-sec .page-slider-cntnt-in {
+    border-top-color: var(--dd-red);
+  }
+
+  .service-sec .slide-hdr {
+    border-top: 1px solid var(--dd-red);
+    min-height: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .service-sec .slide-hdr-hdng {
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 26px;
+  }
+
+  .service-sec .slide-hdr-right {
+    text-align: right;
+    max-width: 70%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .service-sec .cmn-btn {
+    border-radius: 50px;
+    padding: 12px 20px;
+  }
+
+  .service-sec .cmn-btn.white {
+    border-radius: 50px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 20px;
+    font-weight: 500;
+  }
+
+  .service-sec .slide-hdr-btn-wpr {
+    width: calc(100% + 70px);
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: -35px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .service-sec .service-cntnt-wpr {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .service-sec .service-row {
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .service-sec .service-col {
+    width: 50%;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .service-sec .service-card-hdr {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .service-sec .service-card-body {
+    padding-bottom: 40px;
+  }
+
+  .service-sec .service-card-footer {
+    border-bottom-style: solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .service-sec .slide-hdr-right {
+    border-top: 1px solid var(--dd-red);
+    text-align: left;
+    flex: none;
+    width: calc(100% + 50px);
+    max-width: none;
+    margin-left: -25px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .service-sec .cmn-btn {
+    padding: 10px 15px;
+  }
+
+  .service-sec .cmn-btn.white {
+    max-width: 276px;
+  }
+
+  .service-sec .service-col {
+    width: 100%;
+  }
+
+  .service-sec .service-card-hdr {
+    padding: 20px 10px;
+  }
+
+  .service-sec .service-card-title {
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .service-sec .service-card-body {
+    min-height: 300px;
+    padding-left: 35px;
+  }
+
+  .service-sec .service-rich-txt h3 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .service-sec .slide-hdr-hdng {
+    font-size: 25px;
+  }
+
+  .service-sec .slide-hdr-btn-wpr {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .service-sec .service-cntnt-wpr {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}

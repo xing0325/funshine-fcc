@@ -1,0 +1,536 @@
+/* ============================================================
+   CaseStudiesSlide — dabbledee.com .casestudies-sec 克隆
+   数值来源: docs/research/dabbledee-webflow.css（.casestudy* / .cs-* / 共享 header 规则）
+   全部选择器以 .casestudies-sec 作用域，避免与其他 slide 冲突
+   断点: 原站 Webflow — min-1280(vw 缩放) / base(992–1279) / ≤991 / ≤767 / ≤479
+   令牌: rose-white=#fff7f0=--dd-cream / chestnut-red=#c3482d=--dd-red / supernova-yellow=--dd-yellow
+   ============================================================ */
+
+/* ===== Slide 根 ===== */
+.casestudies-sec {
+  /* 原站 body: arboria 15px/1.5，正文默认色 = chestnut-red（见 webflow body 2095） */
+  font-family: var(--font-arboria), sans-serif;
+  color: var(--dd-red);
+  background-color: var(--dd-cream);
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  /* 原版 CSS 写死 height:1000px(Webflow 画布残值)；实际 slide=100vh 无纵向滚动 */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.casestudies-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+.casestudies-sec .page-slider-cntnt-in {
+  z-index: 2;
+  background-color: var(--dd-cream); /* 原站 rose-white */
+  flex-flow: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* ===== 顶部标题条（CASE STUDIES + 定义句）===== */
+.casestudies-sec .slide-hdr {
+  flex: none;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+/* .w-layout-blockcontainer + .container 合并后的生效值 */
+.casestudies-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+.casestudies-sec .container.h-full {
+  height: 100%;
+}
+
+.casestudies-sec .slide-hdr-in {
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* h2 基础(32px/1.2, mb 5px) + .slide-hdr-hdng 红描边（本 slide 为红变体，无 .ylw） */
+.casestudies-sec .slide-hdr-hdng {
+  font-family: var(--font-arboria), sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--dd-red);
+  text-transform: uppercase;
+  margin: 0 0 5px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* .slide-hdr-right + .align-right（.full 桌面态无额外规则） */
+.casestudies-sec .slide-hdr-right {
+  font-family: var(--font-campaign), serif;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+  display: flex;
+}
+
+.casestudies-sec .slide-hdr-right.align-right {
+  text-align: right;
+}
+
+.casestudies-sec .slide-hdr-right em {
+  font-style: italic;
+}
+
+.casestudies-sec .slide-hdr-right strong {
+  font-weight: 700;
+}
+
+/* .sldr-hdr-btm-line（红，无 .ylw 变体） */
+.casestudies-sec .sldr-hdr-btm-line {
+  background-color: var(--dd-red);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ===== 内容区（药丸卡网格）===== */
+.casestudies-sec .casestudy-cntnt-wpr {
+  flex: 1;
+}
+
+.casestudies-sec .casestudy-cntnt-in {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 0.867vw;
+  padding-bottom: 0.867vw;
+  display: flex;
+  position: relative;
+}
+
+/* 左右红竖线（成框） */
+.casestudies-sec .cs-lft-line {
+  background-color: var(--dd-red);
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.casestudies-sec .cs-rht-line {
+  background-color: var(--dd-red);
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.casestudies-sec .casestudy-row {
+  flex-flow: wrap;
+  max-width: 900px;
+  margin-bottom: -22px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.casestudies-sec .casestudy-col {
+  flex: none;
+  width: 50%;
+  margin-bottom: 22px;
+  padding-left: 4.167vw;
+  padding-right: 4.167vw;
+}
+
+/* 药丸卡外壳：超大圆角 + 1px 红描边 + 裁切 */
+.casestudies-sec .casestudy-card-img-wpr {
+  z-index: 9;
+  border: 1px solid var(--dd-red);
+  border-radius: 12.292vw; /* 药丸超大圆角（webflow 实测值） */
+  width: 100%;
+  margin-bottom: 8px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 视频容器（原 w-embed div 承载 .casestudy-card-img 尺寸） */
+.casestudies-sec .casestudy-card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 160px;
+}
+
+/* 视频撑满并略溢出以消除药丸内边缘（复刻原站内联 style） */
+.casestudies-sec .cs-cover-video {
+  display: block;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  object-fit: cover;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* hover 遮罩（原站为 JS 交互，未落进 CSS —— 此处用 :hover 复刻同样可见效果） */
+.casestudies-sec .cs-cover-overlay {
+  opacity: 0;
+  color: #fff;
+  background-color: #c3482dcc;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.casestudies-sec .casestudy-card-img-wpr:hover .cs-cover-overlay {
+  opacity: 1;
+}
+
+/* 卡底两列文字 */
+.casestudies-sec .casestudy-card-btm {
+  justify-content: space-between;
+  font-size: 16px;
+  display: flex;
+}
+
+.casestudies-sec .casestudy-card-btm-rht {
+  text-align: right;
+}
+
+.casestudies-sec .brand-name {
+  font-weight: 500;
+}
+
+.casestudies-sec .casestudy-card-link {
+  color: var(--dd-red);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.casestudies-sec .casestudy-card-link:hover {
+  color: #000;
+}
+
+/* ===== ≥1280: 原站切到 vw 缩放 ===== */
+@media screen and (min-width: 1280px) {
+  .casestudies-sec {
+    font-size: 1.042vw;
+  }
+
+  .casestudies-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .casestudies-sec .slide-hdr {
+    min-height: 1px;
+    padding-top: 0.556vw;
+    padding-bottom: 0.556vw;
+  }
+
+  /* 原站 h2 在 1280+ 的 font-size/margin */
+  .casestudies-sec .slide-hdr-hdng {
+    margin-bottom: 0.694vw;
+    font-size: 2.778vw;
+  }
+
+  .casestudies-sec .slide-hdr-right {
+    max-width: 70%;
+    font-size: 1.389vw;
+  }
+
+  .casestudies-sec .casestudy-row {
+    max-width: 70vw;
+    margin-bottom: -2vw;
+  }
+
+  .casestudies-sec .casestudy-col {
+    margin-bottom: 2vw;
+  }
+
+  .casestudies-sec .casestudy-card-img-wpr {
+    margin-bottom: 0.15vw;
+  }
+
+  .casestudies-sec .casestudy-card-img {
+    height: 13.717vw;
+    max-height: 24.5vh;
+  }
+
+  .casestudies-sec .casestudy-card-btm {
+    font-size: 1.111vw;
+  }
+
+  .casestudies-sec .cs-cover-overlay {
+    font-size: 1.111vw;
+  }
+}
+
+/* ===== ≥1920: 微调纵向节奏 ===== */
+@media screen and (min-width: 1920px) {
+  .casestudies-sec .casestudy-cntnt-in {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+  }
+
+  .casestudies-sec .casestudy-row {
+    margin-bottom: -1vw;
+  }
+
+  .casestudies-sec .casestudy-col {
+    margin-bottom: 1vw;
+  }
+}
+
+/* ===== ≤991: 纵向堆叠 + 去掉画布高度锁 ===== */
+@media screen and (max-width: 991px) {
+  .casestudies-sec {
+    height: auto;
+    overflow: visible;
+  }
+
+  .casestudies-sec.swiper-slide {
+    order: 6; /* 原站移动端 slide 排序 */
+  }
+
+  .casestudies-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .casestudies-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  /* .slide-hdr（非 ylw）≤991：顶边红线 */
+  .casestudies-sec .slide-hdr {
+    border-top: 1px solid var(--dd-red);
+    min-height: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .casestudies-sec .slide-hdr-hdng {
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 26px;
+  }
+
+  /* .slide-hdr-right + .align-right.full 合并（撑满并突破容器左右 25px） */
+  .casestudies-sec .slide-hdr-right {
+    max-width: 70%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .casestudies-sec .slide-hdr-right.align-right.full {
+    border-top: 1px solid var(--dd-red);
+    text-align: left;
+    flex: none;
+    width: calc(100% + 50px);
+    max-width: none;
+    margin-left: -25px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .casestudies-sec .casestudy-cntnt-wpr {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .casestudies-sec .casestudy-cntnt-in {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* 侧线在移动端隐藏 */
+  .casestudies-sec .cs-lft-line,
+  .casestudies-sec .cs-rht-line {
+    opacity: 0;
+  }
+
+  .casestudies-sec .casestudy-row {
+    margin-bottom: -40px;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .casestudies-sec .casestudy-col {
+    margin-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .casestudies-sec .casestudy-card-img {
+    height: 150px;
+  }
+}
+
+/* ===== ≤767: 单列居中，圆角改定值 ===== */
+@media screen and (max-width: 767px) {
+  .casestudies-sec .casestudy-row {
+    margin-bottom: -30px;
+  }
+
+  .casestudies-sec .casestudy-col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .casestudies-sec .casestudy-card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .casestudies-sec .casestudy-card-img-wpr {
+    border-radius: 200px;
+  }
+
+  .casestudies-sec .casestudy-card-img {
+    height: 180px;
+  }
+
+  .casestudies-sec .casestudy-card-btm {
+    font-size: 15px;
+  }
+}
+
+/* ===== ≤479 ===== */
+@media screen and (max-width: 479px) {
+  .casestudies-sec .slide-hdr-hdng {
+    font-size: 25px;
+  }
+
+  .casestudies-sec .casestudy-cntnt-wpr {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .casestudies-sec .casestudy-card {
+    max-width: 330px;
+  }
+
+  .casestudies-sec .casestudy-card-img-wpr {
+    margin-bottom: 2px;
+  }
+
+  .casestudies-sec .casestudy-card-img {
+    height: 150px;
+  }
+}
+
+/* ============================================================
+   入场动画（引擎在当前 slide 根元素加 .is-active 时触发）
+   原站: Splitting.js 拆字逐字上浮 + [move-up] 卡片级联位移
+   webflow CSS 未捕获对应 keyframes(JS 驱动)，参数按实测行为复刻。
+   仅 ≥992 应用隐藏初始态——移动端堆叠布局下内容恒可见，避免引擎
+   不加 is-active 时整块空白。
+   ============================================================ */
+
+.casestudies-sec .word {
+  display: inline-block;
+}
+
+.casestudies-sec .char {
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  /* 未激活: 标题字符 + 卡片藏起，保证来回切换可重放 */
+  .casestudies-sec [data-splitting] .char {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  .casestudies-sec [move-up] {
+    opacity: 0;
+  }
+
+  /* 激活: 标题逐字上浮（--ci 为字符序号，JSX 内联注入） */
+  .casestudies-sec.is-active [data-splitting] .char {
+    animation: ddCsCharUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(
+      var(--char-base, 0.1s) + var(--ci, 0) * var(--char-stagger, 30ms)
+    );
+  }
+
+  /* 大标题慢波 */
+  .casestudies-sec.is-active .slide-hdr-hdng {
+    --char-stagger: 45ms;
+    --char-base: 0.15s;
+  }
+
+  /* 激活: 四张药丸卡级联上浮（--mi 为卡序号 0..3） */
+  .casestudies-sec.is-active [move-up] {
+    animation: ddCsCardUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.35s + var(--mi, 0) * 0.1s);
+  }
+}
+
+@keyframes ddCsCharUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddCsCardUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

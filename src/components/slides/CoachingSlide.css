@@ -1,0 +1,795 @@
+/* ============================================================
+   CoachingSlide — dabbledee.com .coaching-sec 克隆
+   数值全部取自 docs/research/dabbledee-webflow.css（coaching/accrd/portfolio 相关）
+   颜色变量映射: --theme-chestnut-red→--dd-red / --theme-rose-white→--dd-cream
+                --theme-supernova-yellow→--dd-yellow / #c3482d1a = 红@10%
+   全部规则 scope 在 .coaching-sec 下，避免与其它 slide 的同名类互踩
+   断点顺序与原站一致: min-1280(vw 缩放) → base(992–1279) → ≤991 → ≤767 → ≤479
+   ============================================================ */
+
+/* ---------- 根（原站 body 级排版：15px arboria 红字，自包含） ---------- */
+.coaching-sec {
+  font-family: var(--font-arboria), sans-serif;
+  color: var(--dd-red);
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ---------- slide 骨架 ---------- */
+.coaching-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+.coaching-sec .page-slider-cntnt-in {
+  z-index: 2;
+  background-color: var(--dd-cream);
+  flex-flow: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* .w-layout-blockcontainer + .container + .w-container 合并后的有效值 */
+.coaching-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+.coaching-sec .container.h-full {
+  height: 100%;
+}
+
+/* ---------- 头部带 ---------- */
+.coaching-sec .slide-hdr {
+  flex: none;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.coaching-sec .slide-hdr-in {
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* 描边大标题（h2 基础 32px/1.2 + .slide-hdr-hdng 覆盖） */
+.coaching-sec .slide-hdr-hdng {
+  font-family: var(--font-arboria), sans-serif;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--dd-red);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* “Need coaching?” 原站永久带 .hide，保留 DOM 仅隐藏 */
+.coaching-sec .slide-hdr-right {
+  font-family: var(--font-campaign), serif;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+  display: flex;
+}
+
+.coaching-sec .hide {
+  display: none;
+}
+
+/* 红底矩形块（贴 header 右侧，上下负 margin 顶满带高） */
+.coaching-sec .slide-hdr-btn-wpr {
+  background-color: var(--dd-red);
+  flex: none;
+  align-self: stretch;
+  margin-top: -7px;
+  margin-bottom: -7px;
+  margin-left: 40px;
+  padding: 9px 15px;
+}
+
+/* 通用药丸钮 + 白色变体（hover: 镂空反色） */
+.coaching-sec .cmn-btn {
+  border: 1px solid var(--dd-yellow);
+  background-color: var(--dd-yellow);
+  color: var(--dd-red);
+  text-transform: uppercase;
+  border-radius: 3.472vw;
+  padding: 0.903vw 1.389vw;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.coaching-sec .cmn-btn:hover {
+  background-color: transparent;
+  color: var(--dd-yellow);
+}
+
+.coaching-sec .cmn-btn.white {
+  border-width: 1px;
+  border-color: var(--dd-cream);
+  background-color: var(--dd-cream);
+  text-align: center;
+  width: 230px;
+}
+
+.coaching-sec .cmn-btn.white:hover {
+  background-color: transparent;
+  color: var(--dd-cream);
+  -webkit-text-stroke-color: var(--dd-cream);
+}
+
+/* 头部带下缘 1px 红线 */
+.coaching-sec .sldr-hdr-btm-line {
+  background-color: var(--dd-red);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ---------- 正文两列 ---------- */
+.coaching-sec .coaching-cntnt-wpr {
+  flex: 1;
+}
+
+.coaching-sec .coaching-row {
+  flex-flow: wrap;
+  height: 100%;
+  display: flex;
+}
+
+.coaching-sec .coaching-lft-col {
+  flex: none;
+  width: 50%;
+}
+
+.coaching-sec .coaching-rht-col {
+  flex-flow: column;
+  flex: none;
+  width: 50%;
+  display: flex;
+}
+
+.coaching-sec .coaching-lft-cntnt {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+}
+
+/* ---------- 公共富文本 ---------- */
+.coaching-sec .cmn-rich-txt {
+  font-size: 15px;
+}
+
+.coaching-sec .cmn-rich-txt p {
+  margin-top: 0;
+  margin-bottom: 1.042vw;
+}
+
+.coaching-sec .cmn-rich-txt > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 手风琴 ---------- */
+.coaching-sec .each-faq {
+  border: 1px solid var(--dd-red);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.coaching-sec .accrd-hdr {
+  cursor: pointer;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 16px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+
+.coaching-sec .accrd-hdr.active {
+  padding-bottom: 0.556vw;
+}
+
+.coaching-sec .accrdng-hdng {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+.coaching-sec .accrd-hdr-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* caret 展开时旋转 180° */
+.coaching-sec .accrd-hdr.active .accrd-hdr-icon {
+  transform: rotate(180deg);
+}
+
+/* 内容区: max-height 过渡开合（默认收起；.is-open 展开）
+   左右 padding 恒定，只动 max-height / padding-bottom / opacity */
+.coaching-sec .accrdn-cntnt {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    padding-bottom 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.coaching-sec .accrdn-cntnt.is-open {
+  max-height: 600px;
+  padding-bottom: 16px;
+  opacity: 1;
+}
+
+.coaching-sec .accrdn-rich ul {
+  margin-top: 0;
+  margin-bottom: 0.694vw;
+  padding-left: 1.528vw;
+  list-style: disc;
+}
+
+.coaching-sec .accrdn-rich li {
+  margin-bottom: 4px;
+}
+
+/* ---------- 价目表 ---------- */
+.coaching-sec .coaching-sliding-top {
+  border-style: none solid solid;
+  border-width: 1px;
+  border-color: var(--dd-red);
+  background-color: #c3482d1a;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.coaching-sec .coaching-session-row {
+  flex-flow: wrap;
+  display: flex;
+}
+
+.coaching-sec .coaching-session-col {
+  border-right: 1px solid var(--dd-red);
+  flex: none;
+  width: 33.33%;
+}
+
+.coaching-sec .coaching-session-col.br-0 {
+  border-right-style: none;
+}
+
+.coaching-sec .coaching-session-blck {
+  text-align: center;
+  padding-top: 0.45vw;
+  padding-bottom: 0.45vw;
+  font-size: 0.972vw;
+}
+
+.coaching-sec .coaching-session-hdng {
+  margin-top: 0;
+  margin-bottom: 0.5vw;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.coaching-sec .strick-through {
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.coaching-sec .coaching-session-btm {
+  border-top: 1px solid var(--dd-red);
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 1.111vw;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.coaching-sec .cmn-rich-txt.sliding-sacle {
+  font-size: 16px;
+}
+
+/* ---------- WHAT WOULD A SESSION LOOK LIKE? 卡 ---------- */
+.coaching-sec .coaching-session-para-wpr {
+  border: 1px solid var(--dd-red);
+  border-radius: 8px;
+  margin-bottom: 0.694vw;
+  padding: 16px;
+}
+
+.coaching-sec .cmn-rich-txt.coaching-session-para h3 {
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0.556vw;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+.coaching-sec .cmn-rich-txt.coaching-session-para ul {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.coaching-sec .cmn-rich-txt.coaching-session-para li {
+  margin-bottom: 6px;
+}
+
+/* Read More 隐藏区：max-height 过渡展开（overflow:hidden 建立 BFC，防 ul 上外边距溢出） */
+.coaching-sec .coaching-more {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease-in-out,
+    opacity 0.35s ease-in-out;
+}
+
+.coaching-sec .coaching-more.is-open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+.coaching-sec .read-more-link-wpr {
+  margin-top: 10px;
+}
+
+.coaching-sec .read-more-link {
+  color: var(--dd-red);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.coaching-sec .read-more-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 院校 logo 墙 ---------- */
+.coaching-sec .portfolio-btm-sec {
+  border-style: solid solid none;
+  border-width: 1px;
+  border-color: var(--dd-red);
+  text-align: center;
+  background-color: #c3482d1a;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-top: auto;
+  padding-bottom: 10px;
+  padding-left: 1.111vw;
+  padding-right: 1.111vw;
+}
+
+.coaching-sec .portfolio-logo-row {
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+}
+
+.coaching-sec .portfolio-logo-col {
+  padding: 0.556vw 1.25vw;
+}
+
+.coaching-sec .portfolio-logo {
+  object-fit: contain;
+  width: 100%;
+  max-height: 20px;
+}
+
+.coaching-sec .portfolio-btm-txt {
+  font-style: italic;
+}
+
+/* ============================================================
+   入场动画（引擎在当前 slide 根加 .is-active 时触发）
+   原站: Splitting.js 拆字上浮 + [move-up]/[move-down] 级联位移（JS 驱动，参数为复刻值）
+   仅 ≥992 应用隐藏初始态——≤991 左列已 display:none 且堆叠布局恒可见，
+   避免引擎未加 is-active 时右列整块空白。
+   ============================================================ */
+.coaching-sec .word {
+  display: inline-block;
+}
+
+.coaching-sec .char {
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  /* 未激活: 藏起，保证来回切换可重放 */
+  .coaching-sec [data-splitting] .char {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  .coaching-sec [move-down],
+  .coaching-sec [move-up] {
+    opacity: 0;
+  }
+
+  /* 激活: 标题逐字上浮（--ci 字符序号，JSX 内联注入） */
+  .coaching-sec.is-active [data-splitting] .char {
+    animation: ddCoachCharUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(
+      var(--char-base, 0.15s) + var(--ci, 0) * var(--char-stagger, 45ms)
+    );
+  }
+
+  /* 卡片级联: --data-delay 0/1/2 */
+  .coaching-sec.is-active [move-down] {
+    animation: ddCoachMoveDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.3s + var(--data-delay, 0) * 0.12s);
+  }
+
+  .coaching-sec.is-active [move-up] {
+    animation: ddCoachMoveUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.4s + var(--data-delay, 0) * 0.12s);
+  }
+}
+
+@keyframes ddCoachCharUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddCoachMoveDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddCoachMoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   响应式（顺序与原站 stylesheet 一致）
+   ============================================================ */
+
+/* ===== ≥1280: 原站切到 vw 缩放 ===== */
+@media screen and (min-width: 1280px) {
+  .coaching-sec {
+    font-size: 1.042vw;
+  }
+
+  .coaching-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .coaching-sec .slide-hdr {
+    min-height: 1px;
+    padding-top: 0.556vw;
+    padding-bottom: 0.556vw;
+  }
+
+  .coaching-sec .slide-hdr-hdng {
+    margin-bottom: 0.694vw;
+    font-size: 2.778vw;
+  }
+
+  .coaching-sec .slide-hdr-right {
+    max-width: 70%;
+    font-size: 1.389vw;
+  }
+
+  .coaching-sec .cmn-btn.white {
+    width: 19.168vw;
+  }
+
+  .coaching-sec .slide-hdr-btn-wpr {
+    margin-top: -0.556vw;
+    margin-bottom: -0.556vw;
+    margin-left: 4.167vw;
+    padding: 0.729vw 1.528vw;
+  }
+
+  .coaching-sec .cmn-rich-txt {
+    font-size: 0.972vw;
+  }
+
+  .coaching-sec .coaching-lft-cntnt {
+    padding-top: 0.8vw;
+    padding-bottom: 0.8vw;
+    padding-right: 4.444vw;
+  }
+
+  .coaching-sec .each-faq {
+    border-radius: 1.389vw;
+    margin-bottom: 0.556vw;
+  }
+
+  .coaching-sec .accrd-hdr {
+    padding: 0.611vw 1.111vw;
+  }
+
+  .coaching-sec .accrdn-cntnt {
+    padding-left: 1.111vw;
+    padding-right: 1.111vw;
+  }
+
+  .coaching-sec .accrdn-cntnt.is-open {
+    max-height: 34vw;
+    padding-bottom: 1.111vw;
+  }
+
+  .coaching-sec .accrdng-hdng {
+    font-size: 1.389vw;
+  }
+
+  .coaching-sec .coaching-sliding-top {
+    border-bottom-right-radius: 1.389vw;
+    border-bottom-left-radius: 1.389vw;
+    margin-bottom: 0.694vw;
+  }
+
+  .coaching-sec .coaching-session-btm {
+    padding-top: 0.208vw;
+    padding-bottom: 0.417vw;
+  }
+
+  .coaching-sec .coaching-session-blck {
+    padding-top: 0.45vw;
+    padding-bottom: 0.45vw;
+  }
+
+  .coaching-sec .coaching-session-hdng {
+    font-size: 1.111vw;
+  }
+
+  .coaching-sec .cmn-rich-txt.sliding-sacle {
+    font-size: 1.111vw;
+  }
+
+  .coaching-sec .coaching-session-para-wpr {
+    border-radius: 1.389vw;
+    padding: 1.111vw;
+  }
+
+  .coaching-sec .cmn-rich-txt.coaching-session-para h3 {
+    font-size: 1.389vw;
+  }
+
+  .coaching-sec .coaching-more.is-open {
+    max-height: 34vw;
+  }
+
+  .coaching-sec .read-more-link.cmn-modal-btn {
+    font-size: 0.972vw;
+  }
+
+  .coaching-sec .read-more-link-wpr {
+    margin-top: 0.694vw;
+  }
+
+  .coaching-sec .portfolio-btm-sec {
+    border-top-left-radius: 1.389vw;
+    border-top-right-radius: 1.389vw;
+    padding-bottom: 0.347vw;
+  }
+
+  .coaching-sec .portfolio-logo {
+    max-height: 1.25vw;
+  }
+}
+
+/* ===== ≤991: 纵向堆叠；左列(手风琴)隐藏，只留右列 ===== */
+@media screen and (max-width: 991px) {
+  .coaching-sec {
+    height: auto;
+    overflow: visible;
+  }
+
+  .coaching-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .coaching-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .coaching-sec .slide-hdr {
+    border-top: 1px solid var(--dd-red);
+    min-height: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .coaching-sec .slide-hdr-hdng {
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 26px;
+  }
+
+  .coaching-sec .cmn-btn {
+    border-radius: 50px;
+    padding: 12px 20px;
+  }
+
+  .coaching-sec .cmn-btn.white {
+    border-radius: 50px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 20px;
+    font-weight: 500;
+  }
+
+  .coaching-sec .slide-hdr-btn-wpr {
+    width: calc(100% + 70px);
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: -35px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .coaching-sec .coaching-cntnt-wpr {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .coaching-sec .coaching-lft-col,
+  .coaching-sec .coaching-rht-col {
+    width: 100%;
+  }
+
+  /* 原站 ≤991 隐藏左侧手风琴 */
+  .coaching-sec .coaching-lft-cntnt {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    display: none;
+  }
+
+  .coaching-sec .each-faq {
+    margin-bottom: 15px;
+  }
+
+  .coaching-sec .coaching-sliding-top {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    order: 1;
+  }
+
+  .coaching-sec .coaching-session-para-wpr {
+    margin-bottom: 15px;
+  }
+
+  .coaching-sec .portfolio-btm-sec {
+    border-bottom-style: solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .coaching-sec .portfolio-logo-col {
+    padding: 8px;
+  }
+}
+
+/* ===== ≤767 ===== */
+@media screen and (max-width: 767px) {
+  .coaching-sec .cmn-rich-txt.sliding-sacle.btm {
+    margin-top: 16px;
+  }
+
+  .coaching-sec .cmn-btn {
+    padding: 10px 15px;
+  }
+
+  .coaching-sec .cmn-btn.white {
+    max-width: 276px;
+  }
+
+  .coaching-sec .portfolio-btm-sec {
+    padding-top: 15px;
+  }
+
+  .coaching-sec .portfolio-logo {
+    max-height: 17px;
+  }
+}
+
+/* ===== ≤479 ===== */
+@media screen and (max-width: 479px) {
+  .coaching-sec .cmn-rich-txt.sliding-sacle.btm {
+    font-size: 11px;
+  }
+
+  .coaching-sec .cmn-rich-txt.coaching-top {
+    font-size: 14px;
+  }
+
+  .coaching-sec .slide-hdr-hdng {
+    font-size: 25px;
+  }
+
+  .coaching-sec .slide-hdr-btn-wpr {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .coaching-sec .coaching-session-col {
+    font-size: 17px;
+  }
+
+  .coaching-sec .coaching-session-blck {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .coaching-sec .portfolio-logo-col {
+    padding: 6px 5px;
+  }
+
+  .coaching-sec .portfolio-logo {
+    min-width: 40px;
+    max-height: 17px;
+  }
+}

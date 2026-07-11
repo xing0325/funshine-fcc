@@ -1,0 +1,482 @@
+/* ============================================================
+   FineArtSlide — dabbledee.com .artwork-sec 克隆
+   数值来源: docs/research/dabbledee-webflow.css（.artwork-* / .slide-hdr* /
+   .fancy_div / .slider-arrow / .alider-arrow-img 及全局 h2/.container 规则）
+   全部选择器以 .artwork-sec 作用域，避免与其它 slide 的同名类互踩。
+   断点跟原站 Webflow: min-1280(vw 缩放) / base(992–1279) / ≤991 / ≤767 / ≤479
+   ============================================================ */
+
+/* ===== Slide 根（原站 body 级: arboria 15px/1.5 红字，此处自包含继承链）===== */
+.artwork-sec {
+  font-family: var(--font-arboria), sans-serif;
+  color: var(--dd-red);
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  /* 原版 CSS 写死 height:1000px(Webflow 画布残值)；实际渲染 slide=100vh 无纵向滚动
+     (docs/research/PAGE_TOPOLOGY.md L10)，按真实渲染取 100vh */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== slide 骨架 ===== */
+.artwork-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+.artwork-sec .page-slider-cntnt-in {
+  z-index: 2;
+  background-color: var(--dd-cream);
+  flex-flow: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* .w-layout-blockcontainer + .container + .w-container 合并后的有效值 */
+.artwork-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+/* ===== 头部带（FINE ART 描边标题 + 右侧花体副文）===== */
+.artwork-sec .slide-hdr {
+  flex: none;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.artwork-sec .slide-hdr-in {
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* 描边大标题：作用于 <h2>，字号取全局 h2 元素规则（class 本身无 font-size）:
+   base 32px / 1280+ 2.778vw / ≤991 26px / ≤479 25px —— 复现真实层叠结果 */
+.artwork-sec .slide-hdr-hdng {
+  font-family: var(--font-arboria), sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--dd-red);
+  text-transform: uppercase;
+  margin: 0 0 5px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* 右侧副文（花体 campaign-serif）。基础 + .align-right 右对齐 */
+.artwork-sec .slide-hdr-right {
+  font-family: var(--font-campaign), serif;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+  display: flex;
+}
+
+.artwork-sec .align-right {
+  text-align: right;
+}
+
+.artwork-sec .slide-hdr-right strong {
+  font-weight: 700;
+}
+
+/* 头部带下缘 1px 红线 */
+.artwork-sec .sldr-hdr-btm-line {
+  background-color: var(--dd-red);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ===== 作品区 ===== */
+.artwork-sec .artwork-cntnt-wpr {
+  flex-flow: column;
+  flex: 1;
+  justify-content: center;
+  padding-top: 1.483vw;
+  padding-bottom: 1.483vw;
+  display: flex;
+}
+
+.artwork-sec .artwork-slider-wpr-outer {
+  position: relative;
+}
+
+.artwork-sec .artwork-slider-wpr {
+  overflow: hidden;
+}
+
+.artwork-sec .artwork-row {
+  margin-left: -0.417vw;
+  margin-right: -0.417vw;
+  display: flex;
+}
+
+/* 原站 .artwork-col 基础 25%（slick 4-up 轨道回退值）；本站仅 3 张、
+   slidesToShow=3 → flex 三列平铺，每列 1/3（spec: 直接 flex 三列） */
+.artwork-sec .artwork-col {
+  flex: none;
+  width: 33.333%;
+  padding-left: 0.417vw;
+  padding-right: 0.417vw;
+}
+
+.artwork-sec .artwork-card {
+  display: block;
+}
+
+.artwork-sec .artwork-img-wpr {
+  border: 1px solid var(--dd-red);
+  margin-bottom: 0.694vw;
+}
+
+/* 覆盖层锚点的定位父级 */
+.artwork-sec .fancy_div {
+  position: relative;
+}
+
+.artwork-sec .artwork-img {
+  object-fit: cover;
+  width: 100%;
+  height: 20.833vw;
+  display: block;
+}
+
+/* 透明点击覆盖层（原站内联 .fancy_img），铺满作品图开灯箱 */
+.artwork-sec .fancy_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.artwork-sec .artwork-card-title {
+  margin: 0 0 0.278vw;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.artwork-sec .artwork-reach-txt {
+  font-size: 15px;
+}
+
+.artwork-sec .artwork-reach-txt p {
+  margin: 0 0 0.139vw;
+}
+
+/* ===== 左右箭头：DOM 保留，3 张时整体隐藏（原站 slick-disabled 行为） ===== */
+.artwork-sec .artwork-arrow-wpr {
+  justify-content: center;
+  align-items: center;
+  margin-top: 26px;
+  display: none;
+}
+
+.artwork-sec .slider-arrow {
+  cursor: pointer;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+  margin-right: 6px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+
+.artwork-sec .alider-arrow-img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   ≥1280: 原站切 vw 缩放
+   ============================================================ */
+@media screen and (min-width: 1280px) {
+  .artwork-sec {
+    font-size: 1.042vw;
+  }
+
+  .artwork-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .artwork-sec .slide-hdr {
+    min-height: 1px;
+    padding-top: 0.556vw;
+    padding-bottom: 0.556vw;
+  }
+
+  .artwork-sec .slide-hdr-hdng {
+    font-size: 2.778vw; /* 全局 h2@1280 —— class 无 font-size 故元素规则生效 */
+  }
+
+  .artwork-sec .slide-hdr-right {
+    max-width: 70%;
+    font-size: 1.389vw;
+  }
+
+  .artwork-sec .artwork-img {
+    height: 20vw;
+  }
+
+  .artwork-sec .artwork-card-title {
+    font-size: 1.25vw;
+  }
+
+  .artwork-sec .artwork-reach-txt {
+    font-size: 1.042vw;
+  }
+}
+
+/* ============================================================
+   ≤991: 纵向堆叠 / 两列换行
+   ============================================================ */
+@media screen and (max-width: 991px) {
+  .artwork-sec {
+    height: auto;
+    overflow: visible;
+  }
+
+  .artwork-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .artwork-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .artwork-sec .slide-hdr {
+    border-top: 1px solid var(--dd-red);
+    min-height: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .artwork-sec .slide-hdr-hdng {
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 26px;
+  }
+
+  .artwork-sec .slide-hdr-right {
+    text-align: right;
+    max-width: 70%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* .slide-hdr-right.align-right.artwork —— 与标题同排右靠 */
+  .artwork-sec .slide-hdr-right.align-right.artwork {
+    flex: 1;
+    justify-content: flex-end;
+    max-width: 58%;
+  }
+
+  .artwork-sec .artwork-cntnt-wpr {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .artwork-sec .artwork-row.artwork-slider {
+    flex-flow: wrap;
+    margin-bottom: -30px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .artwork-sec .artwork-col {
+    width: 50%;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .artwork-sec .artwork-img-wpr {
+    margin-bottom: 15px;
+  }
+
+  .artwork-sec .artwork-img {
+    height: 290px;
+  }
+
+  .artwork-sec .artwork-card-title {
+    margin-bottom: 8px;
+  }
+
+  /* 箭头本就隐藏，这里对齐原站 @991 显式 none */
+  .artwork-sec .artwork-arrow-wpr {
+    display: none;
+  }
+}
+
+/* ============================================================
+   ≤767: 副文断行为整宽块（突破容器左右 25px）
+   ============================================================ */
+@media screen and (max-width: 767px) {
+  .artwork-sec .slide-hdr-right {
+    border-top: 1px solid var(--dd-red);
+    text-align: left;
+    flex: none;
+    width: calc(100% + 50px);
+    max-width: none;
+    margin-left: -25px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .artwork-sec .slide-hdr-right.align-right.artwork {
+    flex: none;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: none;
+  }
+
+  .artwork-sec .artwork-row.artwork-slider {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  .artwork-sec .artwork-col {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .artwork-sec .artwork-img {
+    height: 240px;
+  }
+
+  .artwork-sec .artwork-card-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .artwork-sec .artwork-reach-txt {
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   ≤479
+   ============================================================ */
+@media screen and (max-width: 479px) {
+  .artwork-sec .slide-hdr-hdng {
+    font-size: 25px;
+  }
+
+  .artwork-sec .artwork-cntnt-wpr {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .artwork-sec .artwork-img-wpr {
+    margin-bottom: 10px;
+  }
+
+  .artwork-sec .artwork-img {
+    height: 180px;
+  }
+
+  .artwork-sec .artwork-card-title {
+    margin-bottom: 4px;
+  }
+
+  .artwork-sec .artwork-reach-txt {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   入场动画（引擎在根加 .is-active 时触发）
+   原站: Splitting.js 逐字上浮 + [move-up] 卡片级联位移（JS 驱动，
+   webflow CSS 未捕获 keyframes，参数为复刻值）。
+   仅 ≥992 应用隐藏初始态——移动端堆叠布局内容恒可见，避免引擎未加
+   is-active 时整块空白。
+   ============================================================ */
+.artwork-sec .word,
+.artwork-sec .char {
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  /* 未激活: 藏字与卡片，保证来回切换可重放 */
+  .artwork-sec [data-splitting] .char {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  .artwork-sec [move-up] {
+    opacity: 0;
+  }
+
+  /* 激活: 逐字上浮（--ci 字符序号，JSX 内联注入） */
+  .artwork-sec.is-active [data-splitting] .char {
+    animation: ddArtCharUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.15s + var(--ci, 0) * 45ms);
+  }
+
+  /* 激活: 卡片级联上浮（--data-delay 卡片序号） */
+  .artwork-sec.is-active [move-up] {
+    animation: ddArtMoveUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.35s + var(--data-delay, 0) * 0.12s);
+  }
+}
+
+@keyframes ddArtCharUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddArtMoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

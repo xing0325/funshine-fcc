@@ -1,0 +1,466 @@
+/* ============================================================
+   AboutSlide — dabbledee.com .about-sec 克隆
+   数值来源: docs/research/dabbledee-webflow.css（.about-sec 相关规则）
+   全部选择器以 .about-sec 作用域，避免与其他 slide 冲突
+   断点: 原站 Webflow — min-1280(vw 缩放) / base(992–1279) / ≤991 / ≤479
+   ============================================================ */
+
+/* ===== Slide 根 ===== */
+.about-sec {
+  /* 原站 body: arboria 15px/1.5 —— 在组件根复现继承链 */
+  font-family: var(--font-arboria), sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  /* 原版 CSS 写死 height:1000px(Webflow 画布残值)；实际站点 slide=100vh 无纵向滚动
+     (docs/research/PAGE_TOPOLOGY.md)，此处按真实渲染取 100vh */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-sec.bg-red,
+.about-sec .bg-red {
+  background-color: var(--dd-red);
+}
+
+.about-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+.about-sec .page-slider-cntnt-in {
+  z-index: 2;
+  flex-flow: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* ===== 顶部标题条（ABOUT + 定义 + 星星）===== */
+.about-sec .about-sec-hdr {
+  display: flex;
+}
+
+/* .slide-hdr + .ylw 合并（本 slide 恒为黄色变体） */
+.about-sec .slide-hdr {
+  color: var(--dd-yellow);
+  flex: none;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+/* .slide-hdr.ylw.about */
+.about-sec .slide-hdr.about {
+  border-right: 1px solid var(--dd-yellow);
+  flex: 1;
+}
+
+/* .w-layout-blockcontainer + .container 合并后的生效值 */
+.about-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+.about-sec .container.about {
+  padding-right: 0.694vw;
+}
+
+.about-sec .container.h-full {
+  height: 100%;
+}
+
+.about-sec .slide-hdr-in {
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* h2 基础(32px/1.2, mb 5px) + .slide-hdr-hdng + .ylw 描边 */
+.about-sec .slide-hdr-hdng {
+  font-family: var(--font-arboria), sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--dd-yellow);
+  text-transform: uppercase;
+  margin: 0 0 5px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.about-sec .slide-hdr-right {
+  font-family: var(--font-campaign), serif;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+  display: flex;
+}
+
+/* .sldr-hdr-btm-line.ylw */
+.about-sec .sldr-hdr-btm-line {
+  background-color: var(--dd-yellow);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.about-sec .about-star-wpr {
+  flex: none;
+  width: 87px;
+  padding-left: 0.3vw;
+  padding-right: 0.3vw;
+  display: flex;
+  overflow: hidden;
+}
+
+.about-sec .about-star {
+  flex: none;
+  padding: 15px 10px;
+}
+
+.about-sec .star-icon {
+  width: 22px;
+  display: block;
+}
+
+/* ===== 正文区 ===== */
+.about-sec .about-page-cntnt {
+  flex: 1;
+}
+
+.about-sec .about-row {
+  height: 100%;
+  display: flex;
+}
+
+.about-sec .about-lft-col {
+  flex: none;
+  width: 56%;
+}
+
+.about-sec .about-rht-col {
+  flex: none;
+  width: 44%;
+}
+
+.about-sec .about-lft-cntnt {
+  z-index: 1;
+  flex-flow: column;
+  height: 100%;
+  padding-top: 2.778vw;
+  padding-bottom: 1vw;
+  padding-right: 4.514vw;
+  display: flex;
+  position: relative;
+}
+
+.about-sec .about-rich-txt {
+  color: var(--dd-yellow);
+  margin-bottom: auto;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.about-sec .about-rich-txt p {
+  margin-top: 0;
+  margin-bottom: 1.528vw;
+}
+
+.about-sec .about-rich-txt strong {
+  font-weight: 900;
+}
+
+.about-sec .about-link-wpr {
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 20%;
+  display: flex;
+}
+
+.about-sec .link-txt {
+  color: var(--dd-yellow);
+  text-decoration: none;
+}
+
+.about-sec .link-txt:hover {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.about-sec .about-img-wpr {
+  text-align: right;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+  margin-left: -50%;
+  display: flex;
+}
+
+.about-sec .about-img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 96%;
+}
+
+/* ===== ≥1280: 原站切到 vw 缩放 ===== */
+@media screen and (min-width: 1280px) {
+  .about-sec {
+    font-size: 1.042vw; /* 原站 body 1280+ */
+  }
+
+  .about-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .about-sec .container.about {
+    padding-right: 0.694vw;
+  }
+
+  .about-sec .slide-hdr {
+    min-height: 1px;
+    padding-top: 0.556vw;
+    padding-bottom: 0.556vw;
+  }
+
+  .about-sec .slide-hdr-hdng {
+    margin-bottom: 0.694vw;
+    font-size: 2.778vw; /* 原站 h2 1280+ */
+  }
+
+  .about-sec .slide-hdr-right {
+    max-width: 70%;
+    font-size: 1.389vw;
+  }
+
+  .about-sec .about-img-wpr {
+    margin-left: -3.472vw;
+  }
+
+  .about-sec .about-star-wpr {
+    width: 5.208vw;
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+  }
+
+  .about-sec .about-star {
+    padding: 0.556vw 0.5vw;
+  }
+
+  .about-sec .star-icon {
+    width: 1.7vw;
+  }
+}
+
+/* ===== ≤991: 纵向堆叠布局 ===== */
+@media screen and (max-width: 991px) {
+  .about-sec {
+    height: auto;
+    overflow: visible;
+  }
+
+  .about-sec.swiper-slide {
+    order: 7; /* 原站移动端 slide 排序 */
+  }
+
+  .about-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .about-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .about-sec .container.about {
+    padding-right: 25px;
+  }
+
+  .about-sec .slide-hdr {
+    border-top: 1px solid var(--dd-yellow); /* .slide-hdr.ylw ≤991 */
+    min-height: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .about-sec .slide-hdr-hdng {
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 26px;
+  }
+
+  /* .slide-hdr-right + .full + .full.ylw 合并（撑满并突破容器左右 25px） */
+  .about-sec .slide-hdr-right {
+    border-top: 1px solid var(--dd-yellow);
+    text-align: left;
+    flex: none;
+    width: calc(100% + 50px);
+    max-width: none;
+    margin-left: -25px;
+    padding: 15px 25px;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .about-sec .about-star-wpr {
+    display: none;
+  }
+
+  .about-sec .about-row {
+    flex-flow: wrap;
+  }
+
+  .about-sec .about-lft-col,
+  .about-sec .about-rht-col {
+    width: 100%;
+  }
+
+  .about-sec .about-img-wpr {
+    margin-left: 0%;
+  }
+
+  .about-sec .about-rich-txt {
+    font-weight: 400;
+  }
+
+  .about-sec .about-rich-txt .italic-text {
+    font-weight: 700;
+  }
+
+  .about-sec .about-lft-cntnt {
+    margin-bottom: 5px;
+    padding-top: 30px;
+    padding-bottom: 0%;
+    padding-right: 0;
+  }
+
+  .about-sec .about-link-wpr {
+    padding-right: 0%;
+  }
+}
+
+/* ===== ≤479 ===== */
+@media screen and (max-width: 479px) {
+  .about-sec .slide-hdr-hdng {
+    font-size: 25px;
+  }
+
+  .about-sec .about-link-wpr {
+    flex-flow: column;
+  }
+
+  .about-sec .link-txt {
+    margin-bottom: 5px;
+  }
+}
+
+/* ============================================================
+   入场动画（引擎在当前 slide 根元素加 .is-active 时触发）
+   原站: Splitting.js 拆字逐字上浮 + [move-up]/[move-down] 级联位移
+   webflow CSS 未捕获到对应 keyframes(JS 驱动)，参数为按实测行为的复刻值。
+   仅 ≥992 应用隐藏初始态——移动端堆叠布局下内容恒可见，避免引擎
+   不加 is-active 时整块空白。
+   ============================================================ */
+
+.about-sec .word {
+  display: inline-block;
+}
+
+.about-sec .char {
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  /* 未激活: 全部藏起，保证来回切换可重放 */
+  .about-sec [data-splitting] .char {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  .about-sec [move-up],
+  .about-sec [move-down] {
+    opacity: 0;
+  }
+
+  /* 激活: 逐字上浮（--ci 为字符序号，由 JSX 内联注入） */
+  .about-sec.is-active [data-splitting] .char {
+    animation: ddAboutCharUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--char-base, 0.1s) + var(--ci, 0) * var(--char-stagger, 30ms));
+  }
+
+  /* 大标题 5 字慢波；定义长句快波 */
+  .about-sec.is-active .slide-hdr-hdng {
+    --char-stagger: 45ms;
+    --char-base: 0.15s;
+  }
+
+  .about-sec.is-active .slide-hdr-right {
+    --char-stagger: 10ms;
+    --char-base: 0.25s;
+  }
+
+  .about-sec.is-active [move-down] {
+    animation: ddAboutMoveDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  }
+
+  .about-sec.is-active [move-up] {
+    animation: ddAboutMoveUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  }
+}
+
+@keyframes ddAboutCharUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddAboutMoveDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddAboutMoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

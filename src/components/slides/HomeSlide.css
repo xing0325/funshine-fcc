@@ -1,0 +1,399 @@
+/* ============================================================
+   HomeSlide — dabbledee.com #home (.home-sec) 克隆
+   数值来源: docs/research/dabbledee-webflow.css（.home-* / .main-hdng /
+   .star-serise-wpr / .banner-btm-txt 等规则）；令牌换成项目 --dd-* / --font-*
+   全部选择器 scope 在 .home-sec 下，避免与其他 slide 同名类互踩
+   断点: min-1280(vw 缩放) / base / ≤991 / ≤767 / ≤479（Webflow 默认）
+   ============================================================ */
+
+/* ===== Slide 根（原站 body 排版：arboria 15px/1.5，自包含复现继承链） ===== */
+.home-sec {
+  font-family: var(--font-arboria), sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  /* 原版 CSS 写死 height:1000px(Webflow 画布残值)；真实站点 slide=100vh */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-sec.bg-red,
+.home-sec .bg-red {
+  background-color: var(--dd-red);
+}
+
+.home-sec .page-slider-cntnt {
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 47px;
+  padding-bottom: 65px;
+  display: flex;
+  position: relative;
+}
+
+/* ===== 背景层：摄影图（兜底） + 无缝视频（桌面） ===== */
+.home-sec .home-slide-bg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-sec .w-background-video {
+  color: #fff;
+  overflow: hidden;
+}
+
+/* 视频层桌面显示（3 类选择器权重压过 .hide，无惧全局 .hide{display:none}） */
+.home-sec .home-slide-bg.w-background-video {
+  display: block;
+}
+
+.home-sec .w-background-video > video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  inset: 0;
+}
+
+/* ===== 顶部星带（原站 splide 自动滚动 → CSS 无缝跑马灯复刻） ===== */
+.home-sec .star-serise-wpr {
+  z-index: 2;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.home-sec .star-slider-list {
+  width: max-content;
+  display: flex;
+  animation: ddStarMarquee 40s linear infinite;
+}
+
+/* .splide__slide.star-slider-item 的生效值 */
+.home-sec .star-slider-item {
+  flex: none;
+  padding: 15px 13px;
+}
+
+.home-sec .star-icon {
+  width: 22px;
+  display: block;
+}
+
+@keyframes ddStarMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-sec .star-slider-list {
+    animation: none;
+  }
+}
+
+/* ===== 内容包裹（列向 flex，垂直居中、左对齐） ===== */
+.home-sec .home-page-cntnt-wpr {
+  z-index: 1;
+  flex-flow: column;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 400;
+  display: flex;
+  position: relative;
+}
+
+/* .w-layout-blockcontainer + .container + .w-container 合并后的生效值 */
+.home-sec .container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+}
+
+.home-sec .home-slide-cntnt {
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ===== 花体主标题（h1；campaign-serif italic 500 黄）—— data-splitting 逐字入场 ===== */
+.home-sec .main-hdng {
+  font-family: var(--font-campaign), serif;
+  color: var(--dd-yellow);
+  margin: 0 0 4px;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ===== 三个描边大词 ===== */
+.home-sec .home-point-list {
+  flex-flow: wrap;
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.home-sec .home-point-list-item {
+  margin-right: 14px;
+}
+
+.home-sec .home-point-list-item.last-child {
+  margin-right: 0;
+}
+
+.home-sec .home-point-link {
+  font-family: var(--font-arboria), sans-serif;
+  color: #ffc7014d; /* 黄 @30% 透明填充，配黄描边 */
+  -webkit-text-stroke: 3px var(--dd-yellow);
+  text-transform: uppercase;
+  cursor: pointer;
+  background-image: url("/images/65f9684075f9015616f3cbb8_new-dot.svg");
+  background-position: 0 60%;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  padding-left: 36px;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+.home-sec .home-point-link:hover {
+  color: var(--dd-yellow);
+}
+
+/* 首词无圆点分隔符 */
+.home-sec .home-point-link.first-child {
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  padding-left: 0;
+}
+
+/* ===== 底部提示行 ===== */
+.home-sec .banner-btm-txt {
+  color: var(--dd-yellow);
+  margin-top: 30px;
+  font-weight: 700;
+  display: flex;
+}
+
+.home-sec .text-block-2 {
+  font-size: 17px;
+}
+
+/* ============================================================
+   入场动画（引擎在根加 .is-active 时触发，可来回重放）
+   原站 Splitting.js 逐字上浮 + [move-up] 级联位移；参数为实测行为复刻值。
+   仅 ≥992 应用隐藏初始态——移动端堆叠布局下内容恒可见，避免引擎
+   不加 is-active 时整块空白（对齐 AboutSlide 约定）。
+   ============================================================ */
+.home-sec .word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.home-sec .char {
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  .home-sec .main-hdng .char {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  .home-sec [move-up] {
+    opacity: 0;
+  }
+
+  .home-sec.is-active .main-hdng .char {
+    animation: ddHomeCharUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.15s + var(--char-index, 0) * 35ms);
+  }
+
+  .home-sec.is-active [move-up] {
+    animation: ddHomeMoveUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.4s + var(--data-delay, 0) * 120ms);
+  }
+}
+
+@keyframes ddHomeCharUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ddHomeMoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   响应式（顺序同原站 stylesheet：min-1280 → ≤991 → ≤767 → ≤479）
+   ============================================================ */
+
+/* ===== ≥1280: 原站切 vw 缩放 ===== */
+@media screen and (min-width: 1280px) {
+  .home-sec {
+    font-size: 1.042vw; /* 原站 body 1280+ */
+  }
+
+  .home-sec .container {
+    padding-left: 5.208vw;
+    padding-right: 5.208vw;
+  }
+
+  .home-sec .main-hdng {
+    margin-bottom: 0.347vw;
+    font-size: 3.1vw; /* 3.1vw@1440 ≈ 44.64px（spec 值） */
+    line-height: 1.4; /* 原站 h1 @1280 */
+  }
+
+  .home-sec .home-point-list-item {
+    margin-right: 1vw;
+  }
+
+  .home-sec .home-point-link {
+    background-size: 1.9vw;
+    padding-left: 2.7vw;
+    font-size: 5.4vw;
+  }
+}
+
+/* ===== ≤991: 纵向堆叠、隐藏视频与提示行、内容顶部对齐 ===== */
+@media screen and (max-width: 991px) {
+  .home-sec {
+    height: auto;
+    overflow: visible;
+  }
+
+  .home-sec.swiper-slide {
+    order: -1; /* 原站移动端 home 置顶 */
+    padding-top: 71px;
+  }
+
+  .home-sec .page-slider-cntnt {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .home-sec .container {
+    max-width: 768px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  /* 移动端回落到摄影图 */
+  .home-sec .home-slide-bg.w-background-video {
+    display: none;
+  }
+
+  .home-sec .home-page-cntnt-wpr {
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 37vh;
+  }
+
+  .home-sec .home-slide-cntnt {
+    max-width: 100%;
+  }
+
+  .home-sec .main-hdng {
+    font-size: 36px;
+    font-weight: 900;
+  }
+
+  .home-sec .home-point-list-item {
+    margin-right: 8px;
+  }
+
+  .home-sec .home-point-link {
+    -webkit-text-stroke-width: 2px;
+    background-size: 13px;
+    padding-left: 23px;
+    font-size: 40px;
+  }
+
+  .home-sec .banner-btm-txt {
+    display: none;
+  }
+}
+
+/* ===== ≤767: 大词竖排、隐藏花体标题 ===== */
+@media screen and (max-width: 767px) {
+  .home-sec.swiper-slide {
+    padding-top: 67px;
+  }
+
+  .home-sec .main-hdng-wpr {
+    display: none;
+  }
+
+  .home-sec .main-hdng {
+    font-size: 28px;
+  }
+
+  .home-sec .home-point-list {
+    flex-flow: column;
+  }
+
+  .home-sec .home-point-list-item {
+    margin-bottom: 5px;
+  }
+
+  .home-sec .home-point-link {
+    -webkit-text-stroke-width: 1.5px;
+    background-image: none;
+    background-repeat: repeat;
+    background-size: auto;
+    padding-left: 0;
+    font-size: 45px;
+  }
+}
+
+/* ===== ≤479 ===== */
+@media screen and (max-width: 479px) {
+  .home-sec .main-hdng {
+    margin-bottom: 6px;
+    font-size: 24px;
+  }
+
+  .home-sec .home-point-link {
+    font-size: 44px;
+  }
+}

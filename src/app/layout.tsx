@@ -34,7 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    // translate="no" + notranslate: 阻止 Chrome 自动翻译把品牌字/逐字标题 span 搅成乱码
+    <html lang="en" translate="no" className="notranslate h-full antialiased">
+      <head>
+        <meta name="google" content="notranslate" />
+      </head>
       <body className="min-h-full">{children}</body>
     </html>
   );

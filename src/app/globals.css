@@ -151,6 +151,15 @@
 }
 
 @layer utilities {
+  /* SplitText 逐字标题: .word 为 inline-block 时,词内尾随空格会被折叠吃掉,
+     导致多词标题粘连(FINE ART→FINEART)。用相邻 .word 左外边距补回词间空格。 */
+  .word {
+    display: inline-block;
+  }
+  .word + .word {
+    margin-left: 0.28em;
+  }
+
   /* 原站描边大标题: 透明填充 + 1px 描边(奶白底红描边 / 红底黄描边) */
   .text-outline-red {
     color: transparent;

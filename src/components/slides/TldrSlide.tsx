@@ -82,9 +82,8 @@ const CARDS: Card[] = [
     btnHref: "https://forms.gle/yzWXcnkTXCTWrEpr6",
   },
   {
-    // 原站文件名含空格/逗号 → 磁盘保存为 URL 编码字面量（%20/%2C），
-    // 故 <img src> 需二次编码（% → %25），静态服务器 decode 一次后才匹配到真实文件。
-    img: "/images/6991ccd8ec677b2ce2af2f9a_ChatGPT%2520Image%2520Feb%252015%252C%25202026%252C%252001_40_21%2520PM.png",
+    // 原带空格/逗号的文件已重命名为干净名，规避 %20/%2C 编码坑。
+    img: "/images/6991ccd8ec677b2ce2af2f9a_tldr-coaching.png",
     alt: "coaching image",
     title: "COACHING",
     para: (
@@ -99,7 +98,7 @@ const CARDS: Card[] = [
     btnHref: "https://calendly.com/dabbldee/30min",
   },
   {
-    img: "/images/6991cd4789ebd1d519665134_ChatGPT%2520Image%2520Feb%252015%252C%25202026%252C%252001_42_10%2520PM.png",
+    img: "/images/6991cd4789ebd1d519665134_tldr-fineart.png",
     alt: "art image",
     title: "FINE ART",
     para: (

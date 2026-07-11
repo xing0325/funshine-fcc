@@ -63,6 +63,15 @@ export function PageShell() {
     if (idx >= 0) swiperRef.current?.slideToLoop(idx, 500);
   }, []);
 
+  // 显式播放当前 slide 内的视频: muted+autoplay 在被 transform 移出视口的 slide 上常不触发,
+  // 切到该 slide 时手动 .play()（Swiper 14 loop 不克隆 DOM，active slide 即真实 React 节点）
+  const playActiveVideos = useCallback((sw: SwiperClass) => {
+    const el = sw.slides[sw.activeIndex] as HTMLElement | undefined;
+    el?.querySelectorAll("video").forEach((v) => {
+      v.play().catch(() => {});
+    });
+  }, []);
+
   return (
     <main className="main-cntnt-wpr relative h-dvh w-full overflow-hidden">
       {showLoader && (
@@ -89,6 +98,7 @@ export function PageShell() {
         preventInteractionOnTransition
         onSwiper={(sw) => {
           swiperRef.current = sw;
+          playActiveVideos(sw);
         }}
         onSlideChangeTransitionStart={(sw) => {
           // 原站滚轮节流: 500ms 动画 + 1000ms 冷却
@@ -101,6 +111,7 @@ export function PageShell() {
           setActiveKey(slide.key);
           applyBodyTheme(sw.realIndex);
         }}
+        onSlideChangeTransitionEnd={(sw) => playActiveVideos(sw)}
       >
         {SLIDES.map(({ key, bgRed, Component }) => (
           <SwiperSlide

@@ -41,8 +41,7 @@ function SplitText({ text }: { text: string }) {
 }
 
 type Artwork = {
-  /** public/images 下的哈希文件名。注意 Botanical Babe 磁盘名字面含 %20，
-   *  故 src 原样保留 %20（Next 静态匹配对未解码路径做字面比对，与磁盘名一致）。 */
+  /** public/images 下的哈希文件名（原带空格的文件已重命名为干净名，规避 %20 编码坑）。 */
   img: string;
   alt: string;
   caption: string;
@@ -51,7 +50,7 @@ type Artwork = {
 
 const ARTWORKS: Artwork[] = [
   {
-    img: "/images/65fd8c9cc515d7c50d0bf9d1_IMG_8842%201.jpg",
+    img: "/images/65fd8c9cc515d7c50d0bf9d1_botanical-babe.jpg",
     alt: "Botanical Babe",
     caption: "Botanical Babe",
     lines: ["Oil on Canvas", "180 X 120 cm", "2023"],

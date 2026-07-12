@@ -4,7 +4,8 @@ import "./HomeSlide.css";
 
 /**
  * HomeSlide — dabbledee.com #home (.home-sec) 克隆
- * 结构/文案 1:1 取自 docs/research/components/slide-home.source.html
+ * 布局/描边字/逐字动画/星带沿用 dabbledee（结构取自 slide-home.source.html）；
+ * 文案+背景图换为 Funshine Career Consulting（FCC，见 docs/research/FCC_CONTENT.md HOME 段）
  * 样式在 HomeSlide.css（.home-sec 作用域，webflow 权威值）
  * 入场: 引擎在根加 .is-active → h1 逐字上浮(--char-index) + [move-up] 级联(--data-delay)
  */
@@ -53,47 +54,35 @@ function StarGroup() {
   );
 }
 
-/** 三个描边大词（首词无圆点分隔符，末词去右边距）——文案/顺序取自 source.html */
+/**
+ * 描边巨字 slogan：OWN OUR CAREER FUTURE（FCC 品牌主张 · 掌握我们这一代的职业方向）。
+ * 原站是三项服务用圆点分隔；此处是一句连贯标语，故所有词都走 first-child 样式
+ * （无圆点、无左内边距），仅末词加 last-child 去右边距。
+ * 保留 .home-point-link 的 -webkit-text-stroke 黄描边 + [move-up] 级联入场。
+ * （原 data-goto 导航属性无引擎消费，随语义化一并移除）
+ */
 const POINTS = [
-  { label: "Branding", goto: "casestudy", first: true, last: false },
-  { label: "Coaching", goto: "coaching", first: false, last: false },
-  { label: "Fine Art", goto: "art", first: false, last: true },
+  { label: "Own", last: false },
+  { label: "Our", last: false },
+  { label: "Career", last: false },
+  { label: "Future", last: true },
 ];
 
 export function HomeSlide({ isActive }: { isActive?: boolean }) {
   return (
     <section className={`home-sec bg-red${isActive ? " is-active" : ""}`}>
       <div className="page-slider-cntnt">
-        {/* 背景摄影图（移动/兜底层，桌面被视频覆盖） */}
+        {/* 背景大图（FCC 品牌天际线，全断点铺满；视频层已移除） */}
         <img
-          src="/images/65f96cc262e4ac5d8f996954_home-page.jpeg"
+          src="/images/fcc/brand-skyline.jpg"
           loading="eager"
           width={1500}
-          alt="art image"
+          alt="Funshine Career Consulting — We Stand by the Next Generation"
           className="home-slide-bg"
         />
 
         <div className="home-page-cntnt-wpr">
-          {/* 背景无缝循环视频（桌面显示覆盖照片；≤991 隐藏，回落照片） */}
-          <div className="home-slide-bg hide w-background-video">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/images/65fd24b60bdf4944200a935f_Home_Video_high_seamless-poster-00001.jpg"
-              data-object-fit="cover"
-            >
-              <source
-                src="/videos/65fd24b60bdf4944200a935f_Home_Video_high_seamless-transcode.mp4"
-                type="video/mp4"
-              />
-              <source
-                src="/videos/65fd24b60bdf4944200a935f_Home_Video_high_seamless-transcode.webm"
-                type="video/webm"
-              />
-            </video>
-          </div>
+          {/* 背景改用 FCC 品牌天际线静态图（原 dabbledee 背景视频已移除，避免其品牌内容出现，也不再引用旧 poster/视频文件） */}
 
           {/* 顶部星带跑马灯 */}
           <div className="star-serise-wpr">
@@ -110,7 +99,7 @@ export function HomeSlide({ isActive }: { isActive?: boolean }) {
             <div className="home-slide-cntnt">
               <div className="main-hdng-wpr">
                 <h1 className="main-hdng" data-splitting="">
-                  <SplitText text="dabbledee by Deena" />
+                  <SplitText text="Funshine Career Consulting" />
                 </h1>
               </div>
               <div data-move="">
@@ -122,12 +111,8 @@ export function HomeSlide({ isActive }: { isActive?: boolean }) {
                       className={`home-point-list-item${p.last ? " last-child" : ""}`}
                       style={{ "--data-delay": i } as React.CSSProperties}
                     >
-                      <div
-                        data-goto={p.goto}
-                        className={`home-point-link${p.first ? " first-child" : ""}`}
-                      >
-                        {p.label}
-                      </div>
+                      {/* 全词 first-child = 无圆点分隔（连贯标语，非分项服务） */}
+                      <div className="home-point-link first-child">{p.label}</div>
                     </li>
                   ))}
                 </ul>

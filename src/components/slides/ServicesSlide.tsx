@@ -3,8 +3,9 @@
 import "./ServicesSlide.css";
 
 /**
- * ServicesSlide — dabbledee.com .service-sec 克隆
- * 结构/文案 1:1 取自 docs/research/components/slide-services.source.html
+ * ServicesSlide — dabbledee.com .service-sec 克隆，文案改造为 FCC / Funshine Career Consulting
+ * 结构/布局/动画 1:1 取自 docs/research/components/slide-services.source.html
+ * 文案依据 docs/research/FCC_CONTENT.md（SERVICES 段）
  * 样式在 ServicesSlide.css（webflow 权威值）
  * 入场: 引擎在根加 .is-active → 标题逐字(--char-index) + 三卡 [move-up] 级联(--data-delay)
  */
@@ -40,56 +41,46 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    title: "HARD WORK",
+    title: "Career Navigator™",
     groups: [
       {
-        h: "Design",
-        items: [
-          "Graphic Design: web UI, flyer, EDM, graphics, typography, packaging etc.",
-          "Illustration: book covers, print commission, brand icons, etc.",
-        ],
+        h: "专属职业规划",
+        items: ["行业定位", "简历精修", "面试辅导", "职业测评 MBTI"],
       },
-      { h: "Photo", items: ["Art Direction", "Retouching"] },
+      {
+        h: "独家职训系统",
+        items: ["历年真题", "内享直播", "行业匹配", "求职通识课"],
+      },
     ],
-    price: "$110/ Hour",
+    price: "精英求职陪跑 · 6–36 个月",
   },
   {
-    title: "BRANDING & REBRANDING",
+    title: "Global Career Pro™",
     groups: [
       {
-        h: "Basic",
-        items: [
-          "Visual Identity: logo/ wordmark, typography, art direction, design direction (packaging to digital interface design)",
-        ],
+        h: "海外求职",
+        items: ["无限内推", "直达招聘决策者", "技能提升包"],
       },
       {
-        h: "Upgrade",
-        items: [
-          "Verbal Identity: brand naming, tagline, manifesto, voice guidelines",
-          "Defining brand identity: core & growth demos , mission/vision/purpose",
-        ],
+        h: "全程无忧",
+        items: ["赫子·学管·教研全程陪伴", "Networking 策略", "实战模拟"],
       },
     ],
-    price: "$10,000+",
+    price: "海外求职精英 · 6–48 个月",
   },
   {
-    title: "CREATIVE STRATEGY",
+    title: "6-Phase Coaching",
     groups: [
       {
-        h: "Campaigns",
-        items: [
-          "Strategic campaign concept & execution: Aligning with brand goals and engaging the target audience.",
-        ],
+        h: "诊断 → 匹配",
+        items: ["背景诊断", "顾问匹配"],
       },
       {
-        h: "Organization",
-        items: [
-          "Recruiting, hiring & onboarding",
-          "Creative organization assessment & recommendations",
-        ],
+        h: "带教 → 落地",
+        items: ["导师指导", "实战模拟", "职场分析", "最终申请"],
       },
     ],
-    price: "$150/ Hour",
+    price: "全流程 1v1 · 终身校友网络",
   },
 ];
 
@@ -103,7 +94,7 @@ export function ServicesSlide({ isActive }: { isActive?: boolean }) {
             <div className="container">
               <div className="slide-hdr-in">
                 <h2 className="slide-hdr-hdng splitting" data-splitting="">
-                  <SplitHeading text="CREATIVE SERVICES" />
+                  <SplitHeading text="SERVICES" />
                 </h2>
                 <div className="slide-hdr-right hide">
                   <div>
@@ -113,12 +104,7 @@ export function ServicesSlide({ isActive }: { isActive?: boolean }) {
                   </div>
                 </div>
                 <div className="slide-hdr-btn-wpr">
-                  <a
-                    href="https://forms.gle/yzWXcnkTXCTWrEpr6"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cmn-btn white"
-                  >
+                  <a href="tel:4000155158" className="cmn-btn white">
                     <div>CONTACT ME</div>
                   </a>
                 </div>

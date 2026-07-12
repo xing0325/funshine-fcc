@@ -419,6 +419,18 @@
   max-height: 20px;
 }
 
+/* 目标公司墙：原院校 logo 图 → FCC 学员 offer 公司文字标签 */
+.coaching-sec .portfolio-company {
+  display: block;
+  color: var(--dd-red);
+  font-family: var(--font-campaign), serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
 .coaching-sec .portfolio-btm-txt {
   font-style: italic;
 }

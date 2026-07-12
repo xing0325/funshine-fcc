@@ -3,12 +3,13 @@
 import "./CaseStudiesSlide.css";
 
 /**
- * CaseStudiesSlide — dabbledee.com .casestudies-sec 克隆
- * 结构/文案 1:1 取自 docs/research/components/slide-case-studies.source.html
+ * CaseStudiesSlide — dabbledee.com .casestudies-sec 克隆 → FCC 学员案例
+ * 结构/布局/药丸卡形/逐字动画沿用 dabbledee 原件（slide-case-studies.source.html）
+ * 内容改造依据: docs/research/FCC_CONTENT.md「CASE STUDIES（学员案例）」段
  * 样式在 CaseStudiesSlide.css（.casestudies-sec 作用域，webflow 权威值）
  * 入场: 引擎在根元素加 .is-active → 标题逐字上浮(--ci) + 药丸卡级联(--mi)
- * 本地化: 视频 <source> webm 在前、mp4 兜底（原站 mp4 在前）；lj 仅 webm。
- *          视频指向本地 /videos/*，图片资产已抽到 /images/*。
+ * 本地化: 药丸卡内 <video> 改为静态封面图 <img>（/images/fcc/*），
+ *          复用 .cs-cover-video 类保持 object-fit:cover 撑满药丸；不再引用 /videos/*。
  */
 
 /** 把纯文本拆成 .word > .char，--ci 全局连续（对齐 CaseStudiesSlide.css 的 var(--ci)） */
@@ -35,61 +36,53 @@ function SplitText({ text }: { text: string }) {
   );
 }
 
-type VideoSource = { src: string; type: string };
-
 type Study = {
   slug: string;
+  /** 学员名（卡底左上行 + hover 遮罩） */
   name: string;
-  industry: string;
-  role: string;
-  years: string;
-  /** webm 在前，mp4 兜底（原站顺序相反，本地化调整） */
-  sources: VideoSource[];
+  /** 院校（卡底左下行） */
+  school: string;
+  /** 去向公司 · 岗位（卡底右上行，加粗） */
+  offer: string;
+  /** 地区（卡底右下行） */
+  region: string;
+  /** 药丸封面图（/images/fcc/*，object-fit:cover 撑满） */
+  image: string;
 };
 
-/** 四组案例，文案/年份/职位/行业原样取自 source.html */
+/** 四位学员案例，文案取自 FCC_CONTENT.md「CASE STUDIES」段；配图顺序同任务约定 */
 const STUDIES: Study[] = [
   {
-    slug: "true-classic",
-    name: "True Classic",
-    industry: "Fashion E-Commerce",
-    role: "Brand Director",
-    years: "2022-2023",
-    sources: [
-      { src: "/videos/tc-cover.webm", type: "video/webm" },
-      { src: "/videos/tc-cover.mp4", type: "video/mp4" },
-    ],
+    slug: "vicky",
+    name: "Vicky",
+    school: "香港大学 HKU",
+    offer: "野村证券 Nomura · IBD",
+    region: "（香港）",
+    image: "/images/fcc/mentor-1v1.jpg",
   },
   {
-    slug: "ettitude",
-    name: "Ettitude",
-    industry: "Home Goods E-Commerce",
-    role: "Creative Director",
-    years: "2018-2021",
-    sources: [
-      { src: "/videos/ettitude-cover.webm", type: "video/webm" },
-      { src: "/videos/ettitude-cover.mp4", type: "video/mp4" },
-    ],
+    slug: "cecilia",
+    name: "Cecilia",
+    school: "约翰霍普金斯 JHU",
+    offer: "联合利华 Unilever · FMCG",
+    region: "（国内）",
+    image: "/images/fcc/consult-sofa.jpg",
   },
   {
-    slug: "jordin-sparks",
-    name: "Jordin Sparks",
-    industry: "Music",
-    role: "Creative Director",
-    years: "2023",
-    sources: [
-      { src: "/videos/js-cover.webm", type: "video/webm" },
-      { src: "/videos/js-cover.mp4", type: "video/mp4" },
-    ],
+    slug: "nana",
+    name: "NaNa",
+    school: "墨尔本大学 Melbourne",
+    offer: "字节跳动 ByteDance",
+    region: "（国内）",
+    image: "/images/fcc/group-discuss.jpg",
   },
   {
-    slug: "lauren-jauregui",
-    name: "Lauren Jauregui",
-    industry: "Music",
-    role: "Creative Director",
-    years: "2018",
-    // lj 只有 webm 资产，无 mp4
-    sources: [{ src: "/videos/lj-cover.webm", type: "video/webm" }],
+    slug: "sunny",
+    name: "Sunny",
+    school: "波士顿大学 BU",
+    offer: "Capital One 第一资本",
+    region: "（美国）",
+    image: "/images/fcc/meeting-present.jpg",
   },
 ];
 
@@ -101,26 +94,20 @@ export function CaseStudiesSlide({ isActive }: { isActive?: boolean }) {
     >
       <div className="page-slider-cntnt">
         <div className="page-slider-cntnt-in">
-          {/* ---- 头部带: CASE STUDIES 描边标题 + 右侧定义句 ---- */}
+          {/* ---- 头部带: CASES 描边标题 + 右侧副行 ---- */}
           <div className="slide-hdr">
             <div className="container">
               <div className="slide-hdr-in">
-                <h2
-                  data-text="CASE STUDIES"
-                  data-splitting=""
-                  className="slide-hdr-hdng"
-                >
-                  <SplitText text="CASE STUDIES" />
+                <h2 data-text="CASES" data-splitting="" className="slide-hdr-hdng">
+                  <SplitText text="CASES" />
                 </h2>
                 <div className="slide-hdr-right align-right full" data-splitting="">
                   <div>
-                    Brand building is akin to world building. Like anything in
-                    nature,
+                    我们已成功辅导上百位同学拿到理想 offer
                     <br />{" "}
                     <strong>
-                      <em>it must stand strong</em>
+                      <em>100+ Offers Landed</em>
                     </strong>
-                    <em> but be always evolving.</em>
                   </div>
                 </div>
               </div>
@@ -148,28 +135,15 @@ export function CaseStudiesSlide({ isActive }: { isActive?: boolean }) {
                           {...{ "move-up": "" }}
                         >
                           <a
-                            href={`/case-study/${s.slug}`}
+                            href="#home"
                             className="casestudy-card-img-wpr w-inline-block"
                           >
                             <div className="casestudy-card-img w-embed">
-                              <video
-                                width="100%"
-                                height="100%"
-                                autoPlay
-                                playsInline
-                                muted
-                                loop
+                              <img
+                                src={s.image}
+                                alt={`${s.name} · ${s.school}`}
                                 className="cs-cover-video"
-                              >
-                                {s.sources.map((src) => (
-                                  <source
-                                    key={src.src}
-                                    src={src.src}
-                                    type={src.type}
-                                  />
-                                ))}
-                                Your browser does not support the video tag.
-                              </video>
+                              />
                             </div>
                             <div className="cs-cover-overlay">
                               <div>{s.name}</div>
@@ -178,16 +152,16 @@ export function CaseStudiesSlide({ isActive }: { isActive?: boolean }) {
                           <div className="casestudy-card-btm">
                             <div className="casestudy-card-btm-lft">
                               <a
-                                href={`/case-study/${s.slug}`}
+                                href="#home"
                                 className="casestudy-card-link w-inline-block"
                               >
                                 <div>{s.name}</div>
                               </a>
-                              <div>{s.industry}</div>
+                              <div>{s.school}</div>
                             </div>
                             <div className="casestudy-card-btm-rht">
-                              <div className="brand-name">{s.role}</div>
-                              <div>{s.years}</div>
+                              <div className="brand-name">{s.offer}</div>
+                              <div>{s.region}</div>
                             </div>
                           </div>
                         </div>

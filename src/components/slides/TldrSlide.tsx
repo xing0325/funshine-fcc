@@ -43,71 +43,60 @@ type Card = {
   linkText: string;
   linkHref: string; // 内链 #<slideKey>：引擎 hashNavigation 跳 slide
   btnText: string;
-  btnHref: string; // 外链 forms.gle / calendly（原样取自 source.html）
-  wrapBtn?: boolean; // 仅 CREATIVE SERVICES 卡原站多套一层 .tldr-card-btn-wpr
+  btnHref: string; // FCC 联系方式：tel:4000155158（原站为 forms.gle / calendly 外链）
+  wrapBtn?: boolean; // 保留：原站 CREATIVE SERVICES 卡多套一层 .tldr-card-btn-wpr；FCC 4 卡统一不用
 };
 
 const CARDS: Card[] = [
   {
-    img: "/images/6991cbbddc0bfbb17c90205e_f164f18c-e041-4155-a88d-d18406d872aa.png",
-    alt: "creative service image",
-    title: "CREATIVE SERVICES",
+    img: "/images/fcc/consult-sofa.jpg",
+    alt: "FCC 沙发咨询场景",
+    title: "Light Your Path 探索精神",
     para: (
-      <p>
-        From building brands to creative direction to creative campaigns, I got
-        you covered.
-      </p>
+      <p>发掘全球高潜力赛道，看清亚太 / 北美 / 英国真正有潜力的机会。</p>
     ),
-    linkText: "SERVICES INFO",
-    linkHref: "#services",
-    btnText: "Contact Me",
-    btnHref: "https://forms.gle/yzWXcnkTXCTWrEpr6",
-    wrapBtn: true,
-  },
-  {
-    img: "/images/66054ec00196cd052196e895_case-studies2.png",
-    alt: "casestudy image",
-    title: "CASE STUDIES",
-    para: (
-      <p>
-        <em>
-          Check out my previous projects across e-comm home, fashion &amp;
-          music.
-        </em>
-      </p>
-    ),
-    linkText: "EXPLORE WORK",
-    linkHref: "#case-studies",
-    btnText: "Contact Me",
-    btnHref: "https://forms.gle/yzWXcnkTXCTWrEpr6",
-  },
-  {
-    // 原带空格/逗号的文件已重命名为干净名，规避 %20/%2C 编码坑。
-    img: "/images/6991ccd8ec677b2ce2af2f9a_tldr-coaching.png",
-    alt: "coaching image",
-    title: "COACHING",
-    para: (
-      <p>
-        Feeling stuck in a creative rut or need some peer support to jumpstart a
-        project?
-      </p>
-    ),
-    linkText: "COACHING INFO",
+    linkText: "WHY FCC",
     linkHref: "#coaching",
-    btnText: "Schedule A Call",
-    btnHref: "https://calendly.com/dabbldee/30min",
+    btnText: "Contact",
+    btnHref: "tel:4000155158",
   },
   {
-    img: "/images/6991cd4789ebd1d519665134_tldr-fineart.png",
-    alt: "art image",
-    title: "FINE ART",
+    img: "/images/fcc/mentor-1v1.jpg",
+    alt: "FCC 一对一带教",
+    title: "Build Real Skills 实践精神",
     para: (
-      <p>Fine Arts is an ongoing personal practice. Explore or reach out to collab!</p>
+      <p>顶尖导师 1v1，从金融建模、AI 应用到职场表达，求职稳得住、打得赢。</p>
     ),
-    linkText: "EXPLORE ART",
-    linkHref: "#fine-art",
-    btnText: "Contact Me",
-    btnHref: "https://forms.gle/yzWXcnkTXCTWrEpr6",
+    linkText: "SERVICES",
+    linkHref: "#services",
+    btnText: "Contact",
+    btnHref: "tel:4000155158",
+  },
+  {
+    img: "/images/fcc/blackboard-plan.jpg",
+    alt: "FCC 黑板职业规划",
+    title: "Play Long Game 长期主义",
+    para: (
+      <p>短期站上头部平台，长期搭建可持续增值的成长路线，转行晋升都不慌。</p>
+    ),
+    linkText: "CASES",
+    linkHref: "#case-studies",
+    btnText: "Contact",
+    btnHref: "tel:4000155158",
+  },
+  {
+    img: "/images/fcc/meeting-present.jpg",
+    alt: "FCC 会议演示场景",
+    title: "Focus Sectors 关注赛道",
+    para: (
+      <p>
+        数字智能 · 大健康 · 半导体 · 双碳 · 跨境出海——押注驱动人类进步的新赛道。
+      </p>
+    ),
+    linkText: "ABOUT",
+    linkHref: "#about",
+    btnText: "Contact",
+    btnHref: "tel:4000155158",
   },
 ];
 
@@ -116,23 +105,20 @@ export function TldrSlide({ isActive }: { isActive?: boolean }) {
     <section className={`tldr-sec bg-red${isActive ? " is-active" : ""}`}>
       <div className="page-slider-cntnt">
         <div className="page-slider-cntnt-in bg-red">
-          {/* ---- 头部带: TL;DR + 副标 ---- */}
+          {/* ---- 头部带: WHY FCC + 副标 ---- */}
           <div className="slide-hdr ylw">
             <div className="container">
               <div className="slide-hdr-in">
                 <h2
                   className="slide-hdr-hdng ylw"
-                  data-text="TL;DR"
+                  data-text="WHY FCC"
                   data-splitting=""
                 >
-                  <SplitText text="Tl;dr" />
+                  <SplitText text="Why FCC" />
                 </h2>
                 <div className="slide-hdr-right tldr ylw">
                   <div data-splitting="">
-                    Welcome to my creative playground. <br />
-                    <strong>
-                      <em>Explore my work &amp; lets collab.</em>
-                    </strong>
+                    <strong>在不确定世界中探索更确定的结果</strong>
                   </div>
                 </div>
               </div>

@@ -62,23 +62,46 @@ body.rose-white .sc-footer {
   line-height: 0;
   cursor: pointer;
 }
-.sc-logo-img {
-  display: block;
+/* FCC inline logo (replaces the two dabbledee floral PNGs).
+   Mark = constant FCC brand-red block with cream letters; the accent frame and
+   the three-line wordmark follow --chrome-accent so they flip with the theme:
+   body (no class) = red header → yellow accent; body.rose-white = cream header → red accent.
+   Whole logo stays 30px tall so it never grows the header. */
+.sc-fcc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   height: 30px;
-  width: auto;
-  transition: opacity 0.5s ease-in-out;
+  line-height: 1;
 }
-.sc-logo-img.red {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+.sc-fcc-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 2px;
+  background-color: #d11100; /* FCC brand red — constant in both themes */
+  color: var(--dd-cream, #fff7f0);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 0 1.5px var(--chrome-accent); /* frame rides the theme accent */
+  transition: box-shadow 0.5s ease-in-out;
 }
-body.rose-white .sc-logo-img {
-  opacity: 0;
-}
-body.rose-white .sc-logo-img.red {
-  opacity: 1;
+.sc-fcc-words {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  color: var(--chrome-accent);
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.5s ease-in-out;
 }
 
 /* social icon buttons (.hdr-link-list / .hdr-link-iblck) */

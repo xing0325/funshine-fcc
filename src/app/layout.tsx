@@ -19,13 +19,9 @@ import "./globals.css";
  */
 
 export const metadata: Metadata = {
-  title: "dabbledee by Deena",
+  title: "Funshine Career Consulting — Own Our Career Future",
   description:
-    "An infinite horizontal experience — branding, coaching & fine art.",
-  icons: {
-    icon: "/seo/65f7d2958d3d97e8055ab304_favicon.ico",
-    apple: "/seo/65f7d28c9882c799b3d18509_new-favicon.png",
-  },
+    "FCC · Boutique Career Agency. We stand by the next generation — personalized career consulting for top offers across Asia-Pacific, North America & the UK.",
 };
 
 export default function RootLayout({

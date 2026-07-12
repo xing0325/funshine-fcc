@@ -14,8 +14,6 @@ export type SlideKey =
 
 const IMG = "/images";
 const ASSET = {
-  logoYellow: `${IMG}/65eea7b93543df2a0cd99c75_logo-yellow.png`,
-  logoRed: `${IMG}/65eeb93ba6602ea7e7cd7f9d_logo-red.png`,
   calendar: `${IMG}/65e832d86357fb7d95537bdd_calendar-icon.svg`,
   mail: `${IMG}/65e832e23db58cff7458f5bd_mail-icon.svg`,
   insta: `${IMG}/65e832e61bd6c485189056d9_insta-icon.svg`,
@@ -30,37 +28,53 @@ const iconVar = (url: string) =>
 
 type Social = { href: string; icon: string; alt: string; blank: boolean };
 const SOCIALS: Social[] = [
-  { href: "https://calendly.com/dabbldee/30min", icon: ASSET.calendar, alt: "calendar icon", blank: true },
-  { href: "mailto:deena@deenacreative.co", icon: ASSET.mail, alt: "mail icon", blank: false },
-  { href: "https://www.instagram.com/dabbledeebydeena/", icon: ASSET.insta, alt: "instagram icon", blank: true },
+  { href: "tel:4000155158", icon: ASSET.calendar, alt: "Call FCC — 400 015 5158", blank: false },
+  { href: "https://funshinecareerconsulting.com/", icon: ASSET.mail, alt: "Funshine Career Consulting website", blank: true },
+  { href: "https://funshinecareerconsulting.com/", icon: ASSET.insta, alt: "Funshine Career Consulting", blank: true },
 ];
 
 type NavItem = { key: SlideKey; label: string };
 
 // Bottom nav order (Swiper pagination in the original): Fine Art → Services.
 const FOOTER_ITEMS: NavItem[] = [
-  { key: "fine-art", label: "Fine Art" },
-  { key: "case-studies", label: "Case Studies" },
+  { key: "fine-art", label: "Team" },
+  { key: "case-studies", label: "Cases" },
   { key: "about", label: "About" },
   { key: "home", label: "Home" },
-  { key: "tldr", label: "TL;DR" },
-  { key: "coaching", label: "Coaching" },
+  { key: "tldr", label: "Why FCC" },
+  { key: "coaching", label: "FAQ" },
   { key: "services", label: "Services" },
 ];
 
 // Mobile menu order (from mobile-nav.source.html).
 const MOBILE_ITEMS: NavItem[] = [
   { key: "home", label: "HOME" },
-  { key: "tldr", label: "TL;DR" },
-  { key: "coaching", label: "COACHING" },
+  { key: "tldr", label: "WHY FCC" },
+  { key: "coaching", label: "FAQ" },
   { key: "services", label: "SERVICES" },
-  { key: "fine-art", label: "FINE ART" },
-  { key: "case-studies", label: "CASE STUDIES" },
+  { key: "fine-art", label: "TEAM" },
+  { key: "case-studies", label: "CASES" },
   { key: "about", label: "ABOUT" },
 ];
 
 function MaskIcon({ icon, className }: { icon: string; className: string }) {
   return <span className={`${className} sc-mask`} style={iconVar(icon)} aria-hidden="true" />;
+}
+
+// FCC inline wordmark (replaces the two dabbledee floral PNGs). The red "FCC"
+// block is constant; the accent frame + three-line wordmark ride --chrome-accent
+// so they flip with the two-theme chrome (yellow on the red header, red on cream).
+function FccLogo() {
+  return (
+    <span className="sc-fcc-logo" aria-hidden="true">
+      <span className="sc-fcc-mark">FCC</span>
+      <span className="sc-fcc-words">
+        <span>Funshine</span>
+        <span>Career</span>
+        <span>Consulting</span>
+      </span>
+    </span>
+  );
 }
 
 function SocialLinks({ variant }: { variant?: "mobile" }) {
@@ -134,9 +148,8 @@ export function SiteChrome({
         <div className="sc-container">
           <div className="sc-hdr-in">
             <div className="sc-logo-wrap">
-              <button className="sc-brand-logo" onClick={() => go("home")} aria-label="Dabbledee — home">
-                <img className="sc-logo-img" src={ASSET.logoYellow} loading="eager" alt="Dabbledee" />
-                <img className="sc-logo-img red" src={ASSET.logoRed} loading="eager" alt="" aria-hidden="true" />
+              <button className="sc-brand-logo" onClick={() => go("home")} aria-label="Funshine Career Consulting — home">
+                <FccLogo />
               </button>
             </div>
 

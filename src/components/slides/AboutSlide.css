@@ -191,9 +191,11 @@
 }
 
 .about-sec .about-link-wpr {
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 8px 20px;
   margin-top: 20px;
-  padding-right: 20%;
+  padding-right: 0;
   display: flex;
 }
 

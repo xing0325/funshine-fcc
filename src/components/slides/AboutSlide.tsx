@@ -48,12 +48,11 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
                   </h2>
                   <div className="slide-hdr-right full ylw">
                     <div>
-                      <strong>Dabbledee: </strong>
-                      <em>(noun)</em> A polymath, embodying continuous
-                      exploration,
+                      <strong>FCC — </strong>
+                      <em>Boutique Career Agency</em> · 与新世代同肩，
                       <br />
-                      blending diverse skills, knowledge, and passions to{" "}
-                      <strong>innovate across multiple domains.</strong>
+                      掌握我们这一代的{" "}
+                      <strong>职业方向 Own Our Career Future.</strong>
                     </div>
                   </div>
                 </div>
@@ -82,49 +81,39 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
                   <div data-move="" className="about-lft-cntnt">
                     <div {...{ "move-down": "" }} className="about-rich-txt">
                       <p>
-                        dabbledee is a{" "}
+                        FCC 是一家{" "}
                         <strong>
                           <em className="italic-text">
-                            playground for showcasing my (Deena&rsquo;s) work
+                            Boutique Career Agency（精品职业中介）
                           </em>
-                        </strong>{" "}
-                        over the last decade. I&rsquo;m an Egyptian American{" "}
-                        <strong>artist &amp; creative director</strong> living
-                        between LA, Lisbon &amp; Cairo. As a self proclaimed
-                        polymath artist, I enjoy swiftly shifting between
-                        performance driven creative to imaginative paintings and
-                        everything in between.
+                        </strong>
+                        ，始终关注 <strong>亚太、北美及英国</strong>{" "}
+                        的高薪与新兴行业，持续研究职场的战略态势 (Career
+                        Strategy)。
                       </p>
                       <p>
-                        I spent the last <strong>7 years</strong> working as a
-                        creative director for{" "}
-                        <strong>high growth e-commerce brands</strong> (e.g.
-                        True Classic) as well as dabbling in the{" "}
-                        <strong>music industry</strong> (e.g. Jordin Sparks)
-                        here and there. I love building worlds for brands and
-                        people with a strong vision.
+                        我们吸纳来自全球顶尖{" "}
+                        <strong>金融、战略咨询、科技新贵及独角兽企业</strong>{" "}
+                        的一线从业者，组成{" "}
+                        <strong>FCC 导师顾问团队</strong>，为客户提供{" "}
+                        <strong>私人型职业咨询与策略指导 (Private Advisory)</strong>
+                        。
                       </p>
                       <p>
-                        My philosophy of life is rooted in fluidity and change.
-                        I&rsquo;ve worn all types of hats;{" "}
-                        <strong>
-                          creative director, designer, strategist, brand
-                          marketer, painter, sculptor &amp; photographer.
-                        </strong>{" "}
-                        I hope to continue evolving always.
+                        我们不仅帮助客户踏入 <strong>世界顶级公司</strong>
+                        ，更致力于探索职业发展的多元可能，为每一位客户规划职场的{" "}
+                        <strong>永续发展路径 (Sustainable Career Path)</strong>。
                       </p>
                     </div>
                     <div className="about-link-wpr">
-                      <a
-                        href="https://cdn.prod.website-files.com/65e81d811a146057bcf24441/66025fadff741af27d114f2f_Deena-Creative%20Director%20%26%20Brand%20Strategist%20.pdf"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="link-txt"
-                      >
-                        Download CV
-                      </a>
-                      <a href="#" className="link-txt">
-                        Privacy Policy | Deena Creative Inc.
+                      <span className="link-txt">
+                        <strong>成都 Chengdu</strong> · IFS T2 28F
+                      </span>
+                      <span className="link-txt">
+                        <strong>新加坡 Singapore</strong> · 30 Raffles Place
+                      </span>
+                      <a href="tel:4000155158" className="link-txt">
+                        400 015 5158
                       </a>
                     </div>
                   </div>
@@ -133,8 +122,8 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
                   <div data-move="" className="about-img-wpr">
                     <img
                       className="about-img"
-                      src="/images/65f0193dff2b5651b1690188_about-img.png"
-                      alt="about art icon"
+                      src="/images/fcc/blackboard-plan.jpg"
+                      alt="FCC 黑板职业规划 · career planning blackboard"
                       {...{ "move-up": "" }}
                       loading="eager"
                     />

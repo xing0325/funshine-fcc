@@ -58,7 +58,7 @@ const STUDIES: Study[] = [
     school: "香港大学 HKU",
     offer: "野村证券 Nomura · IBD",
     region: "（香港）",
-    image: "/images/fcc/mentor-1v1.jpg",
+    image: "images/fcc/mentor-1v1.jpg",
   },
   {
     slug: "cecilia",
@@ -66,7 +66,7 @@ const STUDIES: Study[] = [
     school: "约翰霍普金斯 JHU",
     offer: "联合利华 Unilever · FMCG",
     region: "（国内）",
-    image: "/images/fcc/consult-sofa.jpg",
+    image: "images/fcc/consult-sofa.jpg",
   },
   {
     slug: "nana",
@@ -74,7 +74,7 @@ const STUDIES: Study[] = [
     school: "墨尔本大学 Melbourne",
     offer: "字节跳动 ByteDance",
     region: "（国内）",
-    image: "/images/fcc/group-discuss.jpg",
+    image: "images/fcc/group-discuss.jpg",
   },
   {
     slug: "sunny",
@@ -82,7 +82,7 @@ const STUDIES: Study[] = [
     school: "波士顿大学 BU",
     offer: "Capital One 第一资本",
     region: "（美国）",
-    image: "/images/fcc/meeting-present.jpg",
+    image: "images/fcc/meeting-present.jpg",
   },
 ];
 

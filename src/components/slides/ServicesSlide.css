@@ -224,7 +224,7 @@
 
 /* 菱形 bullet：背景图 point-icon */
 .service-sec .service-rich-txt li {
-  background-image: url("/images/65f0062dcf97b67292e44e5d_point-icon.png");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADkSURBVHgBrdM9DoIwFMDx9wDv0dHFxNVBoxuewnAUT+AR9BhsJC6uJnoA7iGKrSaEj368tq8LbUJ/f0oAgThu+VI08D5nkBar8l5T9iSUm/7wp5LTrbqqNWUf0uFW9LbVGSQ71wnQH6YHMAymBTAcdgcwDrYHMB42B5AH1geQD54GkBceBjL1S8uVANbRygduDkkDr6IFqIFxSO+yLp/H3zuv8rlIYVYhwwkUvCkfhZp3XwtHoA8P8NjAGJ7goQEdrMV9AybYiFMDNtiKuwIu2ImbAhSYhI8DVNhrqMB1vzj57PkCMeelT2aBxkkAAAAASUVORK5CYII=");
   background-position: 0 8px;
   background-repeat: no-repeat;
   background-size: 8px;

@@ -52,19 +52,19 @@ type TeamCard = {
 /** FCC 团队介绍三卡（依据 docs/research/FCC_CONTENT.md「FINE ART — 团队介绍 Team」段）。 */
 const TEAM_CARDS: TeamCard[] = [
   {
-    img: "/images/fcc/team-group-2.jpg",
+    img: "images/fcc/team-group-2.jpg",
     alt: "Partnership Committee",
     caption: "Partnership Committee",
     lines: ["合伙人委员会", "赫子 & Rebecca 联合创始人", "腾讯云前副总裁等"],
   },
   {
-    img: "/images/fcc/mentor-1v1.jpg",
+    img: "images/fcc/mentor-1v1.jpg",
     alt: "Core Team",
     caption: "Core Team",
     lines: ["核心团队", "10年+ 国际职业规划经验", "Career Consultants"],
   },
   {
-    img: "/images/fcc/meeting-present.jpg",
+    img: "images/fcc/meeting-present.jpg",
     alt: "Mentor Network",
     caption: "Mentor Network",
     lines: ["导师网络", "金融·科技·咨询一线高管", "经合伙人委员会筛选"],
@@ -158,7 +158,7 @@ export function FineArtSlide({ isActive }: { isActive?: boolean }) {
                 <div className="artwork-arrow-wpr">
                   <div className="slider-arrow left">
                     <img
-                      src="/images/65f92cf76f05058a393f68a7_left-caret.svg"
+                      src="images/65f92cf76f05058a393f68a7_left-caret.svg"
                       loading="lazy"
                       alt="left caret icon"
                       className="alider-arrow-img"
@@ -166,7 +166,7 @@ export function FineArtSlide({ isActive }: { isActive?: boolean }) {
                   </div>
                   <div className="slider-arrow right">
                     <img
-                      src="/images/65f92cf9dc04cb6fb9bbded8_right-caret.svg"
+                      src="images/65f92cf9dc04cb6fb9bbded8_right-caret.svg"
                       loading="eager"
                       alt="right caret icon"
                       className="alider-arrow-img"

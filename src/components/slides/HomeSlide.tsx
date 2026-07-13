@@ -33,7 +33,7 @@ function SplitText({ text }: { text: string }) {
   );
 }
 
-const STAR_SRC = "/images/65f137f19f11078973b6102a_single-star.svg";
+const STAR_SRC = "images/65f137f19f11078973b6102a_single-star.svg";
 /** 顶部星带：一组 32 颗，渲染两组以实现 translateX(-50%) 无缝跑马灯 */
 const STARS_PER_GROUP = 32;
 
@@ -74,7 +74,7 @@ export function HomeSlide({ isActive }: { isActive?: boolean }) {
       <div className="page-slider-cntnt">
         {/* 背景大图（FCC 品牌天际线，全断点铺满；视频层已移除） */}
         <img
-          src="/images/fcc/brand-skyline.jpg"
+          src="images/fcc/brand-skyline.jpg"
           loading="eager"
           width={1500}
           alt="Funshine Career Consulting — We Stand by the Next Generation"

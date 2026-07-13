@@ -63,7 +63,7 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
               {Array.from({ length: 6 }).map((_, i) => (
                 <div className="about-star" key={i}>
                   <img
-                    src="/images/65f137f19f11078973b6102a_single-star.svg"
+                    src="images/65f137f19f11078973b6102a_single-star.svg"
                     loading="lazy"
                     alt="star icon"
                     className="star-icon"
@@ -122,7 +122,7 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
                   <div data-move="" className="about-img-wpr">
                     <img
                       className="about-img"
-                      src="/images/fcc/blackboard-plan.jpg"
+                      src="images/fcc/blackboard-plan.jpg"
                       alt="FCC 黑板职业规划 · career planning blackboard"
                       {...{ "move-up": "" }}
                       loading="eager"

@@ -138,7 +138,7 @@ export function PageLoader({ onEnter }: { onEnter?: () => void }) {
         <div className="loader-cntnt">
           <div style={{ opacity: 1 }} className="loader-icon-wpr">
             <img
-              src="/images/65eff50be1bfcfdbe6c4a25d_loader-icon.png"
+              src="images/65eff50be1bfcfdbe6c4a25d_loader-icon.png"
               loading="lazy"
               alt="loader icon"
               className="loader-icon"

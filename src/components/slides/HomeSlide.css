@@ -165,7 +165,7 @@
   -webkit-text-stroke: 3px var(--dd-yellow);
   text-transform: uppercase;
   cursor: pointer;
-  background-image: url("/images/65f9684075f9015616f3cbb8_new-dot.svg");
+  background-image: url("data:image/svg+xml,%3Csvg width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E %3Crect x=%221.5%22 y=%221.5%22 width=%2229%22 height=%2229%22 rx=%2214.5%22 fill=%22%23FFC701%22 fill-opacity=%220.3%22 stroke=%22%23FFC701%22 stroke-width=%223%22/%3E %3C/svg%3E ");
   background-position: 0 60%;
   background-repeat: no-repeat;
   background-size: 22px;

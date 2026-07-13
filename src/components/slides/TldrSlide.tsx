@@ -49,7 +49,7 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    img: "/images/fcc/consult-sofa.jpg",
+    img: "images/fcc/consult-sofa.jpg",
     alt: "FCC 沙发咨询场景",
     title: "Light Your Path 探索精神",
     para: (
@@ -61,7 +61,7 @@ const CARDS: Card[] = [
     btnHref: "tel:4000155158",
   },
   {
-    img: "/images/fcc/mentor-1v1.jpg",
+    img: "images/fcc/mentor-1v1.jpg",
     alt: "FCC 一对一带教",
     title: "Build Real Skills 实践精神",
     para: (
@@ -73,7 +73,7 @@ const CARDS: Card[] = [
     btnHref: "tel:4000155158",
   },
   {
-    img: "/images/fcc/blackboard-plan.jpg",
+    img: "images/fcc/blackboard-plan.jpg",
     alt: "FCC 黑板职业规划",
     title: "Play Long Game 长期主义",
     para: (
@@ -85,7 +85,7 @@ const CARDS: Card[] = [
     btnHref: "tel:4000155158",
   },
   {
-    img: "/images/fcc/meeting-present.jpg",
+    img: "images/fcc/meeting-present.jpg",
     alt: "FCC 会议演示场景",
     title: "Focus Sectors 关注赛道",
     para: (

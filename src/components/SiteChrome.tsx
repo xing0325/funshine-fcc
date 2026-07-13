@@ -12,7 +12,7 @@ export type SlideKey =
   | "coaching"
   | "services";
 
-const IMG = "/images";
+const IMG = "images";
 const ASSET = {
   calendar: `${IMG}/65e832d86357fb7d95537bdd_calendar-icon.svg`,
   mail: `${IMG}/65e832e23db58cff7458f5bd_mail-icon.svg`,

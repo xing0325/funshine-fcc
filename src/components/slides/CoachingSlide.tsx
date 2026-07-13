@@ -167,7 +167,7 @@ export function CoachingSlide({ isActive }: { isActive?: boolean }) {
                             >
                               <h3 className="accrdng-hdng">{faq.heading}</h3>
                               <img
-                                src="/images/65eed3c17f9e65ef374d2c18_down-caret.svg"
+                                src="images/65eed3c17f9e65ef374d2c18_down-caret.svg"
                                 loading="lazy"
                                 alt="down caret icon"
                                 className="accrd-hdr-icon"

@@ -60,15 +60,11 @@ function splitChars(text: string): ReactNode[] {
   return nodes;
 }
 
-/* 文案照抄原站(含 "return to back to" 原文与 em 的奇怪切分点) */
-const LINE_1 = splitChars(
-  "The site is an infinite horizontal experience—",
+/* FCC 进场文案: 品牌行 + 横向导航提示(保留原站"无限横向"的功能性引导, 换成 FCC 口吻) */
+const LINE_1 = splitChars("Funshine Career Consulting —");
+const LINE_2 = splitChars(
+  "own our career future. scroll sideways to explore.",
 );
-const LINE_2_EM_1 = splitChars("start anywhere");
-const LINE_2_EM_2 = splitChars(
-  ", you’ll always return to back to the starting po",
-);
-const LINE_2_EM_3 = splitChars("int.");
 const WORD_TOTAL = wordCounter;
 const CHAR_TOTAL = charCounter;
 
@@ -157,9 +153,7 @@ export function PageLoader({ onEnter }: { onEnter?: () => void }) {
             <p>{LINE_1}</p>
             <p>
               <strong>
-                <em>{LINE_2_EM_1}</em>
-                <em>{LINE_2_EM_2}</em>
-                <em>{LINE_2_EM_3}</em>
+                <em>{LINE_2}</em>
               </strong>
             </p>
           </div>

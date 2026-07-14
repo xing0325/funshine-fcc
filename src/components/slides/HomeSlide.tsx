@@ -72,12 +72,13 @@ export function HomeSlide({ isActive }: { isActive?: boolean }) {
   return (
     <section className={`home-sec bg-red${isActive ? " is-active" : ""}`}>
       <div className="page-slider-cntnt">
-        {/* 背景大图（FCC 品牌天际线，全断点铺满；视频层已移除） */}
+        {/* 背景大图（FCC 办公大堂，干净不抢前景描边字；全断点铺满；视频层已移除）
+            备选: brand-skyline.jpg(自带英文大字) / team-group-*.jpg / meeting-present.jpg */}
         <img
-          src="images/fcc/brand-skyline.jpg"
+          src="images/fcc/office-lobby.jpg"
           loading="eager"
           width={1500}
-          alt="Funshine Career Consulting — We Stand by the Next Generation"
+          alt="Funshine Career Consulting — Own Our Career Future"
           className="home-slide-bg"
         />
 

@@ -37,24 +37,24 @@ type NavItem = { key: SlideKey; label: string };
 
 // Bottom nav order (Swiper pagination in the original): Fine Art → Services.
 const FOOTER_ITEMS: NavItem[] = [
-  { key: "fine-art", label: "Team" },
-  { key: "case-studies", label: "Cases" },
-  { key: "about", label: "About" },
-  { key: "home", label: "Home" },
-  { key: "tldr", label: "Why FCC" },
-  { key: "coaching", label: "FAQ" },
-  { key: "services", label: "Services" },
+  { key: "fine-art", label: "团队" },
+  { key: "case-studies", label: "案例" },
+  { key: "about", label: "关于" },
+  { key: "home", label: "首页" },
+  { key: "tldr", label: "优势" },
+  { key: "coaching", label: "答疑" },
+  { key: "services", label: "服务" },
 ];
 
 // Mobile menu order (from mobile-nav.source.html).
 const MOBILE_ITEMS: NavItem[] = [
-  { key: "home", label: "HOME" },
-  { key: "tldr", label: "WHY FCC" },
-  { key: "coaching", label: "FAQ" },
-  { key: "services", label: "SERVICES" },
-  { key: "fine-art", label: "TEAM" },
-  { key: "case-studies", label: "CASES" },
-  { key: "about", label: "ABOUT" },
+  { key: "home", label: "首页" },
+  { key: "tldr", label: "优势" },
+  { key: "coaching", label: "答疑" },
+  { key: "services", label: "服务" },
+  { key: "fine-art", label: "团队" },
+  { key: "case-studies", label: "案例" },
+  { key: "about", label: "关于" },
 ];
 
 function MaskIcon({ icon, className }: { icon: string; className: string }) {

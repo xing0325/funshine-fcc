@@ -161,7 +161,7 @@
 
 .home-sec .home-point-link {
   font-family: var(--font-arboria), sans-serif;
-  color: #ffc7014d; /* 黄 @30% 透明填充，配黄描边 */
+  color: #ffffff4d; /* 黄 @30% 透明填充，配黄描边 */
   -webkit-text-stroke: 3px var(--dd-yellow);
   text-transform: uppercase;
   cursor: pointer;

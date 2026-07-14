@@ -2,7 +2,7 @@
    CoachingSlide — dabbledee.com .coaching-sec 克隆
    数值全部取自 docs/research/dabbledee-webflow.css（coaching/accrd/portfolio 相关）
    颜色变量映射: --theme-chestnut-red→--dd-red / --theme-rose-white→--dd-cream
-                --theme-supernova-yellow→--dd-yellow / #c3482d1a = 红@10%
+                --theme-supernova-yellow→--dd-yellow / #d111001a = 红@10%
    全部规则 scope 在 .coaching-sec 下，避免与其它 slide 的同名类互踩
    断点顺序与原站一致: min-1280(vw 缩放) → base(992–1279) → ≤991 → ≤767 → ≤479
    ============================================================ */
@@ -277,7 +277,7 @@
   border-style: none solid solid;
   border-width: 1px;
   border-color: var(--dd-red);
-  background-color: #c3482d1a;
+  background-color: #d111001a;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   margin-bottom: 10px;
@@ -394,7 +394,7 @@
   border-width: 1px;
   border-color: var(--dd-red);
   text-align: center;
-  background-color: #c3482d1a;
+  background-color: #d111001a;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin-top: auto;

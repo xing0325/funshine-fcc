@@ -8,15 +8,17 @@
 /* ---- theme tokens ---- */
 .sc-hdr,
 .sc-footer {
-  --chrome-accent: var(--dd-yellow, #ffc701);
-  --chrome-bg: var(--dd-red, #c3482d);
-  --chrome-bg-trans: rgba(195, 72, 45, 0.7); /* #c3482db3 */
+  /* 红底主题(默认): 白 chrome (原黄→白) */
+  --chrome-accent: var(--dd-yellow, #ffffff);
+  --chrome-bg: var(--dd-red, #d11100);
+  --chrome-bg-trans: rgba(209, 17, 0, 0.72); /* 品牌红 @72% 底部导航半透底 */
 }
 body.rose-white .sc-hdr,
 body.rose-white .sc-footer {
-  --chrome-accent: var(--dd-red, #c3482d);
-  --chrome-bg: var(--dd-cream, #fff7f0);
-  --chrome-bg-trans: rgba(255, 247, 240, 0.7);
+  /* 白底主题: 红 chrome */
+  --chrome-accent: var(--dd-red, #d11100);
+  --chrome-bg: var(--dd-cream, #ffffff);
+  --chrome-bg-trans: rgba(255, 255, 255, 0.72);
 }
 
 /* Recolour single-colour SVGs to the current accent (yellow / red per theme). */
@@ -81,8 +83,8 @@ body.rose-white .sc-footer {
   height: 30px;
   padding: 0 6px;
   border-radius: 2px;
-  background-color: #d11100; /* FCC brand red — constant in both themes */
-  color: var(--dd-cream, #fff7f0);
+  background-color: var(--dd-black, #171717); /* 黑方块 + 白字, 红/白 header 上都够对比 */
+  color: var(--dd-cream, #ffffff);
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 0.06em;
@@ -239,7 +241,8 @@ body.rose-white .sc-footer {
   transform: rotate(45deg);
   transition: all 0.5s ease-in-out;
 }
-/* blue evil-eye indicator (.active-menu-indicator-img) — slides between dots */
+/* active indicator (.active-menu-indicator-img) — slides between dots.
+   原图是蓝色邪眼陀螺,红黑白配色里蓝色跳脱→用 filter 去饱和压暗成近黑指示点。 */
 .sc-active-menu-indicator-img {
   position: absolute;
   bottom: -3px;
@@ -248,6 +251,7 @@ body.rose-white .sc-footer {
   pointer-events: none;
   opacity: 0;
   transform: translateX(-50%);
+  filter: grayscale(1) brightness(0.32) contrast(1.25);
   animation: sc-evil-bob 3.2s ease-in-out infinite;
 }
 .sc-active-menu-indicator-img.ready {

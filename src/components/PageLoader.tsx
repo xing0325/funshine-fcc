@@ -60,11 +60,9 @@ function splitChars(text: string): ReactNode[] {
   return nodes;
 }
 
-/* FCC 进场文案: 品牌行 + 横向导航提示(保留原站"无限横向"的功能性引导, 换成 FCC 口吻) */
-const LINE_1 = splitChars("Funshine Career Consulting —");
-const LINE_2 = splitChars(
-  "own our career future. scroll sideways to explore.",
-);
+/* FCC 进场文案(中文): 品牌行 + 横向导航提示(保留原站"无限横向"的功能性引导) */
+const LINE_1 = splitChars("与新世代同肩，掌握职业方向");
+const LINE_2 = splitChars("左右滑动，探索 FCC 的每一站。");
 const WORD_TOTAL = wordCounter;
 const CHAR_TOTAL = charCounter;
 

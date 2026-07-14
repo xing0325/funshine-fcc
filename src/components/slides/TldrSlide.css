@@ -135,7 +135,7 @@
 }
 
 .tldr-sec .tldr-card {
-  background-color: #ffc7011a; /* = var(--dd-yellow) @ 10% alpha，值照抄原站 */
+  background-color: #ffffff1f; /* = var(--dd-yellow) @ 10% alpha，值照抄原站 */
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   flex-flow: column;

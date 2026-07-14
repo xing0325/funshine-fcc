@@ -55,9 +55,9 @@ const CARDS: Card[] = [
     para: (
       <p>发掘全球高潜力赛道，看清亚太 / 北美 / 英国真正有潜力的机会。</p>
     ),
-    linkText: "WHY FCC",
+    linkText: "了解优势",
     linkHref: "#coaching",
-    btnText: "Contact",
+    btnText: "咨询",
     btnHref: "tel:4000155158",
   },
   {
@@ -67,9 +67,9 @@ const CARDS: Card[] = [
     para: (
       <p>顶尖导师 1v1，从金融建模、AI 应用到职场表达，求职稳得住、打得赢。</p>
     ),
-    linkText: "SERVICES",
+    linkText: "查看服务",
     linkHref: "#services",
-    btnText: "Contact",
+    btnText: "咨询",
     btnHref: "tel:4000155158",
   },
   {
@@ -79,9 +79,9 @@ const CARDS: Card[] = [
     para: (
       <p>短期站上头部平台，长期搭建可持续增值的成长路线，转行晋升都不慌。</p>
     ),
-    linkText: "CASES",
+    linkText: "看案例",
     linkHref: "#case-studies",
-    btnText: "Contact",
+    btnText: "咨询",
     btnHref: "tel:4000155158",
   },
   {
@@ -93,9 +93,9 @@ const CARDS: Card[] = [
         数字智能 · 大健康 · 半导体 · 双碳 · 跨境出海——押注驱动人类进步的新赛道。
       </p>
     ),
-    linkText: "ABOUT",
+    linkText: "关于我们",
     linkHref: "#about",
-    btnText: "Contact",
+    btnText: "咨询",
     btnHref: "tel:4000155158",
   },
 ];
@@ -111,10 +111,10 @@ export function TldrSlide({ isActive }: { isActive?: boolean }) {
               <div className="slide-hdr-in">
                 <h2
                   className="slide-hdr-hdng ylw"
-                  data-text="WHY FCC"
+                  data-text="我们的优势"
                   data-splitting=""
                 >
-                  <SplitText text="Why FCC" />
+                  <SplitText text="我们的优势" />
                 </h2>
                 <div className="slide-hdr-right tldr ylw">
                   <div data-splitting="">

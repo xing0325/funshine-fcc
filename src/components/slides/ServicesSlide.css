@@ -178,11 +178,11 @@
   display: flex;
 }
 
-/* 标题带：红 10% 透明底（#c3482d1a，叠奶白≈浅粉），只圆上角，下缘即 1px 红边 */
+/* 标题带：红 10% 透明底（#d111001a，叠奶白≈浅粉），只圆上角，下缘即 1px 红边 */
 .service-sec .service-card-hdr {
   border: 1px solid var(--dd-red);
   text-align: center;
-  background-color: #c3482d1a; /* = var(--dd-red) @ 10% alpha，值照抄原站 */
+  background-color: #d111001a; /* = var(--dd-red) @ 10% alpha，值照抄原站 */
   border-top-left-radius: 1.389vw;
   border-top-right-radius: 1.389vw;
   padding: 1.95vw 1.042vw;
@@ -237,7 +237,7 @@
 .service-sec .service-card-footer {
   border: 1px solid var(--dd-red);
   text-align: center;
-  background-color: #c3482d1a;
+  background-color: #d111001a;
   border-top-left-radius: 1.389vw;
   border-top-right-radius: 1.389vw;
   margin-top: -25px;

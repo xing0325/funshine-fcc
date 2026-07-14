@@ -58,11 +58,12 @@
   --font-arboria: "Poppins";
   --font-campaign: "Playfair Display";
 
-  /* dabbledee 原站色板（实测 getComputedStyle）*/
-  --dd-red: #c3482d;       /* 主红/番茄红: body 默认底色 + 文字主色(奶白底上) */
-  --dd-cream: #fff7f0;     /* 奶白 rose-white: 浅底 slide 的 body 底色 */
-  --dd-yellow: #ffc701;    /* 金黄: 红底上的文字/按钮/星星/logo */
-  --dd-maroon: #4d0e00;    /* 深栗: loader 底色的实色基础(原站 rgba(77,14,0,.8) 叠红底) */
+  /* FCC 红黑白色板（去黄）。改这 4 个变量即全站换肤——组件颜色全走这些变量。 */
+  --dd-red: #d11100;       /* 红: FCC 品牌红。红底 slide + 白底上的文字/描边/边框/accent */
+  --dd-cream: #ffffff;     /* 白: 浅底 slide 底色 + 红底上的文字/按钮/星星/logo(原黄的位置) */
+  --dd-yellow: #ffffff;    /* (原金黄→白) 去黄: 凡是"红底上的黄"现在全变白,高对比 */
+  --dd-maroon: #1a1a1a;    /* 黑: loader 遮罩底色基础(近黑) */
+  --dd-black: #171717;     /* 黑: logo 方块 / 深色 accent */
 
   --background: var(--dd-cream);
   --foreground: var(--dd-red);

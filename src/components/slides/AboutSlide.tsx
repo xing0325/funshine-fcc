@@ -44,7 +44,7 @@ export function AboutSlide({ isActive }: { isActive?: boolean }) {
               <div className="container about">
                 <div className="slide-hdr-in">
                   <h2 className="slide-hdr-hdng ylw" data-splitting="">
-                    <SplitText text="ABOUT" />
+                    <SplitText text="关于我们" />
                   </h2>
                   <div className="slide-hdr-right full ylw">
                     <div>

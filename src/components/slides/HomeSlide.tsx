@@ -62,10 +62,8 @@ function StarGroup() {
  * （原 data-goto 导航属性无引擎消费，随语义化一并移除）
  */
 const POINTS = [
-  { label: "Own", last: false },
-  { label: "Our", last: false },
-  { label: "Career", last: false },
-  { label: "Future", last: true },
+  { label: "掌握", last: false },
+  { label: "职业未来", last: true },
 ];
 
 export function HomeSlide({ isActive }: { isActive?: boolean }) {
@@ -122,7 +120,7 @@ export function HomeSlide({ isActive }: { isActive?: boolean }) {
                   className="banner-btm-txt"
                   style={{ "--data-delay": POINTS.length } as React.CSSProperties}
                 >
-                  <div className="text-block-2">SCROLL↑↓ OR USE ←→ KEYS</div>
+                  <div className="text-block-2">上下滚动，或按 ← → 切换</div>
                 </div>
               </div>
             </div>

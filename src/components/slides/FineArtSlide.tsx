@@ -90,7 +90,7 @@ export function FineArtSlide({ isActive }: { isActive?: boolean }) {
             <div className="container w-container">
               <div className="slide-hdr-in">
                 <h2 className="slide-hdr-hdng" data-splitting="">
-                  <SplitText text="Team" />
+                  <SplitText text="核心团队" />
                 </h2>
                 <div className="slide-hdr-right align-right artwork">
                   <div>

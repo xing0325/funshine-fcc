@@ -98,8 +98,8 @@ export function CaseStudiesSlide({ isActive }: { isActive?: boolean }) {
           <div className="slide-hdr">
             <div className="container">
               <div className="slide-hdr-in">
-                <h2 data-text="CASES" data-splitting="" className="slide-hdr-hdng">
-                  <SplitText text="CASES" />
+                <h2 data-text="学员案例" data-splitting="" className="slide-hdr-hdng">
+                  <SplitText text="学员案例" />
                 </h2>
                 <div className="slide-hdr-right align-right full" data-splitting="">
                   <div>

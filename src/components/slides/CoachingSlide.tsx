@@ -125,7 +125,7 @@ export function CoachingSlide({ isActive }: { isActive?: boolean }) {
             <div className="container">
               <div className="slide-hdr-in">
                 <h2 className="slide-hdr-hdng" data-splitting="">
-                  <SplitText text="FAQ" />
+                  <SplitText text="常见问题" />
                 </h2>
                 <div className="slide-hdr-right hide">
                   <div>

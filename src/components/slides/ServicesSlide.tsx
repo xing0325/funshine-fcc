@@ -94,7 +94,7 @@ export function ServicesSlide({ isActive }: { isActive?: boolean }) {
             <div className="container">
               <div className="slide-hdr-in">
                 <h2 className="slide-hdr-hdng splitting" data-splitting="">
-                  <SplitHeading text="SERVICES" />
+                  <SplitHeading text="服务体系" />
                 </h2>
                 <div className="slide-hdr-right hide">
                   <div>
@@ -105,7 +105,7 @@ export function ServicesSlide({ isActive }: { isActive?: boolean }) {
                 </div>
                 <div className="slide-hdr-btn-wpr">
                   <a href="tel:4000155158" className="cmn-btn white">
-                    <div>CONTACT ME</div>
+                    <div>预约咨询</div>
                   </a>
                 </div>
               </div>
